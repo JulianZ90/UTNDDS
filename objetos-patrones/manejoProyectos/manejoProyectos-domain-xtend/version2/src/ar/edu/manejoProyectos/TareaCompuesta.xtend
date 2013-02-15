@@ -1,10 +1,9 @@
 package ar.edu.manejoProyectos
 
-import ar.edu.manejoProyectos.TipoDeTarea
 import java.util.List
 import java.util.ArrayList
 
-class TareaCompuesta implements TipoDeTarea {
+class TareaCompuesta extends TipoTarea {
 	
 	List<Tarea> subtareas
 	
