@@ -1,5 +1,7 @@
 package ar.edu.manejoProyectos;
 
+@Deprecated  
+//Use TipoTarea instead
 public interface TipoDeTarea {
 
 	public double getCosto(Tarea tarea);

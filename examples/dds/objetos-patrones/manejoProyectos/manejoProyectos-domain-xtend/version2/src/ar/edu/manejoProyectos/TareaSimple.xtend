@@ -2,7 +2,7 @@ package ar.edu.manejoProyectos
 
 import ar.edu.manejoProyectos.exceptions.BusinessException
 
-class TareaSimple implements TipoDeTarea {
+class TareaSimple extends TipoTarea {
 
 	override double getCostoTotal(Tarea tarea) {
 		this.getCosto(tarea)
