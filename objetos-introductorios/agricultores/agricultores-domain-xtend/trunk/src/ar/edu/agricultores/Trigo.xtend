@@ -4,6 +4,7 @@ import ar.edu.agricultores.Cultivo
 import ar.edu.agricultores.Parcela
 import java.util.List
 import java.util.ArrayList
+import static extension util.NumberUtil.*
 
 class Trigo extends Cultivo {
 
@@ -14,6 +15,8 @@ class Trigo extends Cultivo {
 	}	
 	
 	override double costoPara(Parcela parcela) {
+		// Uso del extension method
+		// se envía un mensaje min a un double !
 		super.costoPara(parcela).min(500)
 	}
 	
@@ -21,16 +24,6 @@ class Trigo extends Cultivo {
 		5
 	}
 	
-	// Extension method que muestra cómo puedo enviar un mensaje min a un número
-	def double min(double numero1, double numero2) { 
-		if (numero1 < numero2) {
-			numero1
-		} else {
-			numero2
-		}
-	}
-	
-
 	override precioVentaPorKg(Parcela parcela) {
 		super.precioVentaPorKg(parcela) - this.costoConservantes
 	}
