@@ -12,9 +12,6 @@ class Venta {
 	@Property Comprador comprador
 	
 	def montoTotal() {
-		println("Precio venta: " + parcela.precioVenta)
-		println("cantidad kilos: " + cantidadKilos)
-		println("coeficiente ajuste: " + coeficienteAjuste)
 		parcela.precioVenta * cantidadKilos * coeficienteAjuste
 	}
 	
