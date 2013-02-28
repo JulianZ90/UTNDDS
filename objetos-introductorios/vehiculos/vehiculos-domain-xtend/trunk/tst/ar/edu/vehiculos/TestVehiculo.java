@@ -31,4 +31,5 @@ public class TestVehiculo {
 	public void testChocarBoeingConFitito() {
 		boeing.chocar(fitito);
 	}
+
 }
