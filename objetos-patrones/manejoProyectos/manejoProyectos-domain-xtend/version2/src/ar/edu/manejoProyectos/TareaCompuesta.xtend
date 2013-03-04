@@ -15,7 +15,7 @@ class TareaCompuesta extends TipoTarea {
 		this.getCostoPorOverhead(tarea.costoBase)
 	}
 
-	def private double getCostoPorOverhead(double costo) {
+	def double getCostoPorOverhead(double costo) {
 		if (this.tieneMuchasTareas()) {
 			costo * 1.04
 		} else {
@@ -23,7 +23,7 @@ class TareaCompuesta extends TipoTarea {
 		}
 	}
 
-	def private boolean tieneMuchasTareas() {
+	def boolean tieneMuchasTareas() {
 		subtareas.size > 3
 	}
 
