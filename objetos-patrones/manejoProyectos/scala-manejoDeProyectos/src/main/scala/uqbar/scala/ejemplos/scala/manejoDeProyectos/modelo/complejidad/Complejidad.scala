@@ -17,6 +17,6 @@ class Media extends Complejidad{
 class Maxima extends Complejidad{
   def costo(tarea:Tarea):Double={
 	  val costoBase:Double = tarea.tiempo * 25 * 1.07
-	  if(tarea.tiempo > 10) costoBase + 10 * (10-tarea.tiempo) else costoBase
+	  if(tarea.tiempo > 10) costoBase + 10 * (tarea.tiempo-10) else costoBase
     }
 }
