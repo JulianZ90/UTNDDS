@@ -15,10 +15,11 @@ class TestAgricultor {
 		deangeli.agregarParcela(new Parcela(50, new Soja))
 		deangeli.agregarParcela(new Parcela(200, new Trigo))
 	}
-	
+
+	// PUNTO 4
+		
 	@Test
 	def void testCultivosDeAgricultor() {
-		println("Estos son: " + deangeli.cultivos)
 		Assert::assertEquals(2, deangeli.cultivos.size)
 	}
 }
