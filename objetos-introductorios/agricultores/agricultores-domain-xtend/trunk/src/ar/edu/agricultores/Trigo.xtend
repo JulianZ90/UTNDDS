@@ -36,4 +36,8 @@ class Trigo extends Cultivo {
 		conservantes.fold(0.0, [ acum, conservante | acum + conservante.precio ])
 	}
 
+	override String toString() {
+		"Trigo"	
+	}
+
 }

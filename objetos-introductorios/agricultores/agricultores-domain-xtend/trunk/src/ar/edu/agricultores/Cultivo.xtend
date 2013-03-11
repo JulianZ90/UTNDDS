@@ -12,10 +12,6 @@ abstract class Cultivo {
 		20
 	}
 	
-	override String toString() {
-		this.getClass().canonicalName	
-	}
-	
 	override boolean equals(Object object) {
 		toString.equals(object.toString)	
 	}

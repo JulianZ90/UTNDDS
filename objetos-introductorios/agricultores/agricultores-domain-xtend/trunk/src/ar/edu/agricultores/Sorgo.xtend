@@ -11,5 +11,9 @@ class Sorgo extends Cultivo {
 			2
 		}
 	}
+
+	override String toString() {
+		"Sorgo"	
+	}
 	
 }

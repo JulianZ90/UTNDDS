@@ -13,6 +13,9 @@ class Agricultor {
 		parcelas = new ArrayList<Parcela>()
 	}
 	
+	/** Otra opción es que cultivos devuelva un Set<String> y mapeemos 
+	 * parcela.cultivo.toString()
+	 */
 	def Set<Cultivo> cultivos() {
 		new HashSet(parcelas.map([ parcela | parcela.cultivo ]))
 	}
