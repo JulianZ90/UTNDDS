@@ -18,4 +18,9 @@ class SojaTransgenica extends Soja {
 			precioVenta
 		}
 	}	
+	
+	override String toString() {
+		"Soja Transgenica"	
+	}
+	
 }

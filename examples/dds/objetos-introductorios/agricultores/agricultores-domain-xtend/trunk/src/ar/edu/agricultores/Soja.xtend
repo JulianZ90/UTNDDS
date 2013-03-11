@@ -21,5 +21,8 @@ class Soja extends Cultivo {
 		}
 	}
 
+	override String toString() {
+		"Soja"	
+	}
 	
 }
