@@ -17,8 +17,10 @@ import ar.edu.utn.frba.dds.ejercicios.introductorios.uniformes.TintoreriaNormal;
 import ar.edu.utn.frba.dds.ejercicios.introductorios.uniformes.Uniforme;
 
 public class UniformesTestDriver {
-	
-	private Uniforme uniforme1, uniforme2, sacoAzul, pantalonBlanco;
+	private Uniforme uniforme1;
+	private Uniforme uniforme2;
+	private Uniforme sacoAzul;
+	private Uniforme pantalonBlanco;
 	private Oficina manliba;
 	private Fabrica inducol;
 	private TintoreriaGrosa nakasone, nakamura;
