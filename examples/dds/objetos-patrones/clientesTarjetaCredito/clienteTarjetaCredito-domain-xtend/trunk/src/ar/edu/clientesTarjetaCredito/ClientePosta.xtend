@@ -4,7 +4,7 @@ import ar.edu.clientesTarjetaCredito.Cliente
 
 class ClientePosta implements Cliente {
 	
-	int saldo
+	@Property int saldo
 	
 	new() {
 		saldo = 0
