@@ -3,9 +3,10 @@ package ar.edu.clientesTarjetaCredito
 import ar.edu.clientesTarjetaCredito.ClienteDecorator
 
 class ClientePromocionDecorator extends ClienteDecorator {
-	int puntosAcumulados
 	static int MONTO_MINIMO = 50
 	static int PUNTOS_PROMOCION = 15
+
+	@Property int puntosAcumulados
 
 	new(Cliente decorado) {
 		super(decorado)
