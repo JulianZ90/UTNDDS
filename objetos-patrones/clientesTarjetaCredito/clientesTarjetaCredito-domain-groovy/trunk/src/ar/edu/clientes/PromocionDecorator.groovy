@@ -1,11 +1,11 @@
 package ar.edu.clientes
 
 class PromocionDecorator {
-	def decorado
+	def cliente
 	def puntos
 	
 	def comprar(monto) {
-		decorado.comprar(monto)
+		cliente.comprar(monto)
 		if (monto > 50) {
 			puntos += 15
 		}

@@ -14,7 +14,7 @@ class TestCliente {
 	@Before
 	void init() {
 		jose = new Cliente(saldo: 40)
-		joseConSafeShop = new SafeShopDecorator(decorado: jose, montoMaximoSafeShop: 20)		
+		joseConSafeShop = new SafeShopDecorator(cliente: jose, montoMaximoSafeShop: 20)		
 	}
 	
 	@Test
