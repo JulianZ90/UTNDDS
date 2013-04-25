@@ -32,10 +32,10 @@ Las soluciones que se plantean son  variantes a las enunciadas por el apunte:
  
  
  Solución: mixin-trait-herenciaMultiple
- Esta solución está hecha en escala y explota la capacidad de obtener comportamientos 
+ Esta solución está hecha en scala y explota la capacidad de obtener comportamientos 
  de distintas clases. Usa los trait de escala (que en realidad son mixins), pero a 
  efectos del diseño da lo mismo hablar de trait, mixin o herencia múltiple.
- La instanciacion de los distintos tipos de lista son muy sencillas.
+ La instanciación de los distintos tipos de lista son muy sencillas.
  
  Solución: strategy-bloques
  Esta solución usa xtend y tiene dos strategies(modo de envío y modo de suscripción)
