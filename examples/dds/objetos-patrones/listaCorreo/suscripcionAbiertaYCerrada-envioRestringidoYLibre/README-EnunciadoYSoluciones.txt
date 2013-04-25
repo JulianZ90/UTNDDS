@@ -1,0 +1,45 @@
+Las soluciones que están dentro de esta carpeta corresponden
+a los requerimientos enunciados en el apunte "Las entradas
+del diseño" https://docs.google.com/document/d/1qPM_sQ0UyGFKRzl13Cbf6zDKj6vxJ4wMZQIXeOrRvM8
+
+Estas soluciones se plantean como variantes a las soluciones planteadas por el apunte:
+ "Concepcion del diseño: un caso práctico" 
+ https://docs.google.com/document/d/1qPM_sQ0UyGFKRzl13Cbf6zDKj6vxJ4wMZQIXeOrRvM8t
+ 
+ Las variantes pasan por mostrar como la tecnología puede influir en el diseño.
+ 
+ Solución: mixin-trait-herenciaMultiple
+ Esta solución está hecha en escala y explota la capacidad de obtener comportamientos 
+ de distintas clases. Usa los trait de escala (que en realidad son mixins), pero a 
+ efectos del diseño da lo mismo hablar de trait, mixin o herencia múltiple.
+ La instanciacion de los distintos tipos de lista son muy sencillas.
+ 
+ Solución: strategy-bloques
+ Esta solución usa xtend y tiene dos strategies(modo de envío y modo de suscripción)
+ El modo de envío se escribe como bloques.
+ La construcción se hace más compleja y se usa un factory
+ 
+ Solución: feoDecorator
+ Esta solución usa xtend. Tiene una herencia para el modo de suscripción y usa un decorator para
+ el modo de envío. Como es tipado estáticamente y existen dos contratos a decorar (Lista abierta y Lista cerrada)
+ La burocracia que agrega el decorator es desalentadora
+ 
+ Solución: decoratorDinámico.
+ Esta solución usa smalltalk. Al igual que la solución "feoDecorator" Tiene herencia por el modo de suscripcion
+ y decora el modo de envío. Al ser tipado de chequeo dinámico e implícito sólo se necesita una clase decorator
+ y nada más. Otra cosa interesante es que smalltalk tiene el método "become" en los objetos, que permiten
+ decorar y desdecorar un objeto en cualquier momento (y no solo en la creación como se hace generalmente)
+ 
+ Solución: openClass-DecoratorSimple
+ Esta solución usa groovy. El modo de envío se resuelve con un decorator, pero a diferencia de la versión 
+ de smalltalk, éste delega por default todos los métodos y escribe sólo el método que le interesa decorar
+ (Esto también podría haber sido resuelto en smalltalk tocando el daesNotUnderstand).
+ El modo de suscripción es un strategy hecho con bloques.
+ Además, se usa openClass para agregarle la lista de miembros pendientes y los métodos aprobar y rechazar 
+ a la lista que se quiere cerrado. (No hay herencia)
+ 
+ 
+ 
+ 
+ 
+   
