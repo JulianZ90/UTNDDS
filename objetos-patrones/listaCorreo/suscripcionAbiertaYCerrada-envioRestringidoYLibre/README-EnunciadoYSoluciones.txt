@@ -1,12 +1,35 @@
 Las soluciones que están dentro de esta carpeta corresponden
 a los requerimientos enunciados en el apunte "Las entradas
 del diseño" https://docs.google.com/document/d/1qPM_sQ0UyGFKRzl13Cbf6zDKj6vxJ4wMZQIXeOrRvM8
+--------Requerimientos------------
+La lista de correo es una función especial del correo electrónico que permite la distribución de 
+mensajes entre múltiples usuarios de Internet de forma simultánea. En una lista de correo, 
+al enviar un mensaje a la dirección de la lista, éste llegará a la dirección de todas las personas 
+inscriptas en ella. 
 
-Estas soluciones se plantean como variantes a las soluciones planteadas por el apunte:
+El sistema debe contemplar: 
+
+Suscripción a la lista
+Suscribir un nuevo miembro a una lista de correo. La suscripción puede ser definida como abierta 
+(cualquiera que se suscribe es admitido) o cerrada (sólo los administradores pueden aceptar 
+suscripciones).
+
+Envío de mails
+Enviar un correo, recibiendo la dirección de e-mail origen del correo, título y texto.  El envío 
+de correos a la lista puede definirse como libre (cualquiera puede enviar correos a la lista) o 
+restringido a los miembros de la lista. Cada usuario puede tener definida más de una dirección de 
+e-mail, desde las que puede enviar mensajes a la(s) lista(s). De todas las direcciones de e-mail 
+que tenga, una es a la que se le envían los mails. 
+
+----------------------------------
+
+
+Las soluciones que se plantean son  variantes a las enunciadas por el apunte:
  "Concepcion del diseño: un caso práctico" 
  https://docs.google.com/document/d/1qPM_sQ0UyGFKRzl13Cbf6zDKj6vxJ4wMZQIXeOrRvM8t
  
  Las variantes pasan por mostrar como la tecnología puede influir en el diseño.
+ 
  
  Solución: mixin-trait-herenciaMultiple
  Esta solución está hecha en escala y explota la capacidad de obtener comportamientos 
