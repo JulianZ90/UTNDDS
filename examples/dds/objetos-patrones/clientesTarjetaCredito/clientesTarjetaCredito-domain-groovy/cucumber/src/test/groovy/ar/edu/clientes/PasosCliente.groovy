@@ -30,10 +30,20 @@ class PasosCliente {
 		unCliente.comprar(precio)
 	}
 
+	@When("^compra los siguientes items:")
+	def clienteCompraItems(List<ItemDeCompra> items) {
+		items.each{ unCliente.comprar(it.precio) }
+	}
+	
 	@Then("^le queda (\\d+) de saldo")
 	def leQueda(int expected){
 		Assert.assertEquals(expected, unCliente.getSaldo())
 		//puedo hacer el getSaldo de Cliente porque groovy me regala los accessors.
 	}
 	
+}
+
+class ItemDeCompra {
+	def int precio
+	def nombre
 }
