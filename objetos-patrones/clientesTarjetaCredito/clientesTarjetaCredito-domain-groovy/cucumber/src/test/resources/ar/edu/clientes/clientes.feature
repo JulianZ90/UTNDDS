@@ -11,3 +11,13 @@ Scenario: un cliente safe shop paga
 	And safe shop con monto maximo de 20
 	When compra algo de 15
 	Then le queda 25 de saldo
+	
+	
+Scenario: un cliente comun compra varias cosas
+	Given un cliente con un saldo de 50
+	When compra los siguientes items:
+		| nombre | precio |
+     	| leche	 | 7      |
+     	| pan    | 20     |
+     	| azucar | 5      |
+     Then le queda 18 de saldo
