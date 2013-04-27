@@ -14,14 +14,7 @@ class TestCliente {
   @Before
   def init() {
     franquito = new Cliente(60)
-    franquitoConNovia = new Cliente(60) with SafeShop {
-      override val maximoCompra = 20
-
-      override def comprar(monto: Int) {
-        super[SafeShop].comprar(monto)
-        super[Cliente].comprar(monto)
-      }
-    }
+    franquitoConNovia = new ClienteSafeShop(60, 20)
     franquitoEnPromo = new Cliente(60) with Promocion {
 
       override def comprar(monto: Int) {
