@@ -3,12 +3,13 @@ package ar.edu.clientes
 import org.junit.Before
 import org.junit.Test
 import ar.edu.clientes.exceptions.BusinessException
+import org.junit.Assert
 
 class TestCliente {
 
   var franquito: Cliente = null
   var franquitoConNovia: Cliente = null
-  var franquitoEnPromo: Cliente = null
+  var franquitoEnPromo: Cliente with Promocion = null
 
   @Before
   def init() {
@@ -44,6 +45,7 @@ class TestCliente {
   @Test
   def franquitoEnPromoCompraPor60() {
     franquitoEnPromo.comprar(60)
-    // Problema de prueba: no puedo acceder a los puntos acumulados del trait
+    Assert.assertEquals(15, franquitoEnPromo.puntosAcumulados)
   }
+
 }

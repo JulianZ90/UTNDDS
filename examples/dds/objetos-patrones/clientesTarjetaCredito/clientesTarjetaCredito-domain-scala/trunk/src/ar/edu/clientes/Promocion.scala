@@ -8,7 +8,6 @@ trait Promocion {
   def comprar(monto: Int) =
     if (monto > montoMinimo) {
       puntosAcumulados += puntosPromocion
-      print ("Puntos acumulados: " + puntosAcumulados)
     }
 
   def montoMinimo(): Int = 50
