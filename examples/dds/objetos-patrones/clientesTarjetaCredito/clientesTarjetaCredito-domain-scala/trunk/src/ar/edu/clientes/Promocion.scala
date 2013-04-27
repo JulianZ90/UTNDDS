@@ -2,13 +2,15 @@ package ar.edu.clientes
 
 import ar.edu.clientes.exceptions.BusinessException
 
-trait Promocion {
+trait Promocion extends Cliente {
   var puntosAcumulados = 0
 
-  def comprar(monto: Int) =
+  override def comprar(monto: Int) = {
+    super.comprar(monto)
     if (monto > montoMinimo) {
       puntosAcumulados += puntosPromocion
     }
+  }
 
   def montoMinimo(): Int = 50
   
