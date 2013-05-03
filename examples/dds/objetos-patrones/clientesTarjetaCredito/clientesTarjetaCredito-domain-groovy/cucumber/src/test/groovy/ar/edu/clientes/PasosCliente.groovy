@@ -12,7 +12,8 @@ import cucumber.api.java.es.Entonces;
 
 class PasosCliente {
 
-	def unCliente;
+	def unCliente
+	def expectedException
 	
 	@Given("^un cliente con un saldo de (\\d+)")
 	def clienteConSaldoDe(int monto) {
@@ -27,7 +28,11 @@ class PasosCliente {
 	
 	@When("^compra algo de (\\d+)")
 	def clienteCompraAlgoDePrecio (int precio){
-		unCliente.comprar(precio)
+		try {
+			unCliente.comprar(precio)
+		} catch (Exception e) {
+			expectedException = e
+		}
 	}
 
 	@When("^compra los siguientes items:")
@@ -37,10 +42,15 @@ class PasosCliente {
 	
 	@Then("^le queda (\\d+) de saldo")
 	def leQueda(int expected){
-		Assert.assertEquals(expected, unCliente.getSaldo())
+		Assert.assertEquals(expected, unCliente.saldo)
 		//puedo hacer el getSaldo de Cliente porque groovy me regala los accessors.
 	}
-	
+
+	@Then("^el usuario recibe un error")
+	def usuarioRecibeError(){
+		assert expectedException in Exception
+	}
+
 }
 
 class ItemDeCompra {
