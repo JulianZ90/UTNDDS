@@ -2,7 +2,7 @@ package ar.edu.clientes
 
 class PromocionDecorator {
 	def cliente
-	def puntos
+	def puntos = 0
 	
 	def comprar(monto) {
 		cliente.comprar(monto)
@@ -11,4 +11,8 @@ class PromocionDecorator {
 		}
 	}
 	
+	
+	def getSaldo() {
+		cliente.saldo
+	}
 }
