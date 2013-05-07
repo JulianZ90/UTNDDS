@@ -13,4 +13,8 @@ class SafeShopDecorator {
 		cliente.comprar(monto)
 	}
 	
+	def getSaldo() {
+		cliente.saldo
+	}
+	
 }
