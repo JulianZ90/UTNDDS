@@ -9,12 +9,12 @@ import org.junit.Test;
 class ListaRestringidaTest {
 	
 	def lista;
-	def emailSenderMock;
+	def emailSenderStub;
 	
 	@Before
 	void setUp() {
-		emailSenderMock = new EmailSenderMock();
-		EmailSenderProvider.emailSender = emailSenderMock;
+		emailSenderStub = new EmailSenderStub();
+		EmailSenderProvider.emailSender = emailSenderStub;
 		lista = new ListaCorreoBuilder().abierta().restringida().build();
 		lista.agregarMiembro(new Miembro(mailDefault:"lgassman@gmail.com"));
 		lista.agregarMiembro(new Miembro(mailDefault:"npasserini@gmail.com"));
@@ -31,7 +31,7 @@ class ListaRestringidaTest {
 	void enviarInterno() throws Exception {
 		def post = new Post(from:"lgassman@gmail.com", subject:"hola", content:"yeah")
 		lista.enviar(post);
-		emailSenderMock.assertPostEnviado("Se esperaba que le llegue a todos los miembros menos a lgassman@gmail.com", 2, post);
+		emailSenderStub.assertPostEnviado("Se esperaba que le llegue a todos los miembros menos a lgassman@gmail.com", 2, post);
 	}
 
 
