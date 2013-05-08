@@ -2,7 +2,7 @@ package ar.org.uqbar.disenio.listas
 
 import org.junit.Assert;
 
-class EmailSenderMock {
+class EmailSenderStub {
 
 	def emailsEnviados = []
 	
