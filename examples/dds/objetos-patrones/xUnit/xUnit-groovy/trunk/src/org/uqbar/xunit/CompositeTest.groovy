@@ -16,8 +16,8 @@ class CompositeTest implements Test {
 	
 	
 	@Override
-	def run() {
-		tests*.run().inject(true, DefaultGroovyMethods.&and)
+	def run(Reporter reporter) {
+		tests*.run(reporter).inject(true, DefaultGroovyMethods.&and)
 	}
 	
 	def addTest(Test test) {

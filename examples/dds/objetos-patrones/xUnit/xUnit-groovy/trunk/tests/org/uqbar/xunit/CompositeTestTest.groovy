@@ -4,38 +4,54 @@ import static org.junit.Assert.*;
 
 class CompositeTestTest extends XUnitTest{
 
+	def successful1 = new SumaSuccessTest();
+	def successful2 = new SumaSuccessTest();
+	def failure1 = new SumaFailureTest();
+	def failure2 = new SumaFailureTest(); 
+	
 	@org.junit.Test 
 	void ambosBien() {
-		assertTestSuccess(new CompositeTest([new SumaSuccessTest(), new SumaSuccessTest()]))
+		run(new CompositeTest([successful1, successful2]))
+		this.assertSuccess(successful1)
+		this.assertSuccess(successful2)
+		
 	}
 	
 	@org.junit.Test
 	void ambosMal() {
-		assertTestFailure(new CompositeTest([new SumaFailureTest(), new SumaFailureTest()]))
+		run(new CompositeTest([failure1, failure2]))
+		this.assertFailure(failure1)
+		this.assertFailure(failure2)
 	}
 
 	@org.junit.Test
 	void unoBienOtroMal() {
-		assertTestFailure(new CompositeTest([new SumaSuccessTest(), new SumaFailureTest()]))
+		run(new CompositeTest([successful1, failure1]))
+		this.assertSuccess(successful1)
+		this.assertFailure(failure1)
 	}
 	
 	@org.junit.Test
 	void unoMalOtroBien() {
-		assertTestFailure(new CompositeTest([new SumaFailureTest(), new SumaSuccessTest()]))
+		run(new CompositeTest([failure1, successful1]))
+		this.assertFailure(failure1)
+		this.assertSuccess(successful1)
 	}
 
 	@org.junit.Test
 	void unoSoloBien() {
-		assertTestSuccess(new CompositeTest([new SumaSuccessTest()]))
+		run(new CompositeTest([successful1]))
+		this.assertSuccess(successful1)
 	}
 	
 	@org.junit.Test
 	void unoSoloMal() {
-		assertTestFailure(new CompositeTest([new SumaFailureTest()]))
+		run(new CompositeTest([failure1]))
+		this.assertFailure(failure1)
 	}
 	
 	@org.junit.Test
 	void vacio() {
-		assertTestSuccess(new CompositeTest())
+		run(new CompositeTest())
 	}
 }

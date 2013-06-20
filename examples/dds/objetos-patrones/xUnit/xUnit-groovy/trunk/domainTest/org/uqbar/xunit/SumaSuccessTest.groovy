@@ -1,9 +1,9 @@
 package org.uqbar.xunit
 
-class SumaSuccessTest implements Test {
+class SumaSuccessTest extends AbstractTest {
 
 	@Override
-	def run() {
+	def test() {
 		2 + 2 == 4;
 	}
 

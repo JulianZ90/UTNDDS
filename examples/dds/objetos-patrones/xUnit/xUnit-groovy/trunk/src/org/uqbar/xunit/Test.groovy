@@ -2,6 +2,6 @@ package org.uqbar.xunit
 
 interface Test {
 	
-	def run()
+	def run(Reporter reporter)
 	
 }
