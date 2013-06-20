@@ -5,9 +5,15 @@ abstract class AbstractTest implements Test {
 	@Override
 	def run() {
 		this.before()
-		def result = this.test()
-		this.after()
-		result		
+		try {
+			this.test()
+		}
+		catch(e)  {
+		  	false
+		}
+		finally {
+			this.after()
+		}	
 	}
 	
 	def before() {
