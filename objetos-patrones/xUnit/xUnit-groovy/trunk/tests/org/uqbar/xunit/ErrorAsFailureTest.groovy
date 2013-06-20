@@ -6,17 +6,17 @@ class ErrorAsFailureTest extends XUnitTest {
 	
 	@Test
 	void testMethodThrowException() {
-		this.assertTestFailure(new DivisionErrorTest())
+		this.runAndAssertFailure(new DivisionErrorTest())
 	}
 	
 	@Test(expected=RuntimeException.class)
 	void beforeError() {
-		new BeforeErrorTest().run()
+		run(new BeforeErrorTest())
 	}
 	
 	@Test(expected=RuntimeException.class)
 	void afterError() {
-		new AfterErrorTest().run()
+		run(new AfterErrorTest())
 	}
 	 
 

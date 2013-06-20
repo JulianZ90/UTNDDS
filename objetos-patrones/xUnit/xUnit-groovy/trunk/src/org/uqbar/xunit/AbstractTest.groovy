@@ -3,13 +3,18 @@ package org.uqbar.xunit
 abstract class AbstractTest implements Test {
 
 	@Override
-	def run() {
+	def run(Reporter reporter) {
 		this.before()
 		try {
-			this.test()
+			if (this.test()) {
+				reporter.success(this)
+			}
+			else {
+				reporter.failure(this)
+			}
 		}
 		catch(e)  {
-		  	false
+		  	reporter.failure(this)
 		}
 		finally {
 			this.after()

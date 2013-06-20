@@ -11,7 +11,7 @@ class EnvironmentTest extends XUnitTest {
 	@Test
 	void environment() {
 		def test = new SumaSuccessWithEnvironmentTest()
-		this.assertTestSuccess(test)
+		this.runAndAssertSuccess(test)
 		Assert.assertEquals(null, test.a)
 		Assert.assertEquals(null, test.b)		
 	}
