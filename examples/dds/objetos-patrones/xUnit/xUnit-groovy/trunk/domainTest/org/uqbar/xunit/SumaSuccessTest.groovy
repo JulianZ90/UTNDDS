@@ -4,7 +4,7 @@ class SumaSuccessTest implements Test {
 
 	@Override
 	def run() {
-		return 2 + 2 == 4;
+		2 + 2 == 4;
 	}
 
 
