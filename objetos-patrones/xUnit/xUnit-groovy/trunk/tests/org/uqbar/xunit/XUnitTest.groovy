@@ -21,8 +21,8 @@ abstract class XUnitTest {
 		reporter.assertFailure(message, test)
 	}
 	
-	def assertError(Test test) {
-		reporter.assertError(test);
+	def assertError(exceptionClass, Test test) {
+		reporter.assertError(exceptionClass, test);
 	}
 	
 	def run(Test test) {

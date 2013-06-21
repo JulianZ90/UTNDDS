@@ -14,7 +14,7 @@ abstract class AbstractTest implements Test {
 			reporter.failure(this, e.getMessage())
 		}
 		catch(Exception e)  {
-		  	reporter.error(this)
+		  	reporter.error(this, e)
 		}
 		finally {
 			this.after()
