@@ -8,28 +8,26 @@ abstract class XUnitTest {
 
 	ReporterStub reporter = new ReporterStub() 
 	
-	
-	def runAndAssertSuccess(Test test) {
-		run(test)
-		assertSuccess(test)
-	}
-
-	def runAndAssertFailure(Test test) {
-		run(test);
-		assertFailure(test)
-	}
 
 	def assertSuccess(Test test) {
 		reporter.assertSuccess(test)
 	}
-	
 
 	def assertFailure(Test test) {
 		reporter.assertFailure(test)
 	}
 	
+	def assertFailure(message, Test test) {
+		reporter.assertFailure(message, test)
+	}
+	
+	def assertError(Test test) {
+		reporter.assertError(test);
+	}
+	
 	def run(Test test) {
 		test.run(this.reporter)
+		test
 	}
 	
 }

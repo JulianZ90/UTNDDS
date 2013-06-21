@@ -4,7 +4,7 @@ class SumaSuccessTest extends AbstractTest {
 
 	@Override
 	def test() {
-		2 + 2 == 4;
+		this.assertEquals(4,2 + 2);
 	}
 
 

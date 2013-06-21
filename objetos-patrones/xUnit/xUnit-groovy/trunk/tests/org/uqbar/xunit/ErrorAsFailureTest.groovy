@@ -6,7 +6,7 @@ class ErrorAsFailureTest extends XUnitTest {
 	
 	@Test
 	void testMethodThrowException() {
-		this.runAndAssertFailure(new DivisionErrorTest())
+		assertError(run( new DivisionErrorTest()))
 	}
 	
 	@Test(expected=RuntimeException.class)

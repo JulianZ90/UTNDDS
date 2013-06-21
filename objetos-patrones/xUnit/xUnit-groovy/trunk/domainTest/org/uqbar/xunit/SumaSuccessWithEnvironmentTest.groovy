@@ -11,8 +11,8 @@ class SumaSuccessWithEnvironmentTest extends AbstractTest {
 	}
 	
 	@Override
-	public Object test() {
-		a + b == 5;
+	def test() {
+		this.assertEquals(5, a + b);
 	}
 	
 	@Override

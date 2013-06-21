@@ -4,7 +4,6 @@ class BeforeErrorTest extends AbstractTest {
 
 	@Override
 	def test() {
-		return true;
 	}
 
 	@Override
