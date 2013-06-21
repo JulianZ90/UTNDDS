@@ -7,7 +7,7 @@ class ReporterStub implements Reporter {
 
 	
 	def failures = [:]
-	def errors = []
+	def errors = [:]
 	def successful = []
 	
 	
@@ -16,8 +16,8 @@ class ReporterStub implements Reporter {
 		this.failures.put(test, message);
 	}
 	
-	def error(Test test) {
-		this.errors.add(test)
+	def error(Test test, Exception ex) {
+		this.errors.put(test, ex)
 	}
 
 	@Override
@@ -30,7 +30,16 @@ class ReporterStub implements Reporter {
 	}
 	
 	def assertError(test) {
-		Assert.assertTrue("El ${test} no termino con error", test in errors)
+		Assert.assertTrue("El ${test} no termino con error", test in errors.keySet())
+	}
+	
+	def assertError(exceptionClass, test) {
+		assertError(test)
+		assertException(test, exceptionClass)
+	}
+	
+	def assertException(test, Class exceptionClass) {
+		Assert.assertTrue("El ${test} no termino con error", exceptionClass.isAssignableFrom(errors[test].class))
 	}
 	
 	def assertFailure(test) {
