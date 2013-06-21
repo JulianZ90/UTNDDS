@@ -4,7 +4,6 @@ class AfterErrorTest extends AbstractTest {
 
 	@Override
 	def test() {
-		return true;
 	}
 
 	def after() {

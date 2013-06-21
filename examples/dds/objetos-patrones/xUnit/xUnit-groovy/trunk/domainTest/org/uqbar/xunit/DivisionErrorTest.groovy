@@ -8,7 +8,7 @@ class DivisionErrorTest extends AbstractTest {
 
 	@Override
 	def test() {
-		1 / 0 == Float.MAX_VALUE
+		this.assertEquals("Se esperada dividir por cero", Float.MAX_VALUE,1 / 0)
 	}
 
 }
