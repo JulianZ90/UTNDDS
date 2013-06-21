@@ -3,6 +3,8 @@ package org.uqbar.xunit
 
 abstract class AbstractTest implements Test {
 
+	
+	
 	@Override
 	def run(Reporter reporter) {
 		this.before()
@@ -27,12 +29,17 @@ abstract class AbstractTest implements Test {
 	def after() {
 	}
 	
+	
 	abstract def test()
 
 	def assertTrue(String message, boolean value) {
 		if(!value) {
-			throw new AssertionException(message)
+			fail(message)
 		}
+	}
+
+	private fail(String message) {
+		throw new AssertionException(message)
 	}
 	
 	def assertFalse(String message, boolean value) {
@@ -45,6 +52,18 @@ abstract class AbstractTest implements Test {
 	
 	def assertEquals(expected, result) {
 		assertEquals("", expected, result)
+	}
+	
+	def assertException(Class exceptionClass, Closure block) {
+		try {
+			block()
+			fail("The ${exceptionClass} was not thrown")
+		}
+		catch(Exception e) {
+			if(!exceptionClass.isAssignableFrom(e.class)) {
+				throw e
+			}
+		}
 	}
 	
 	
