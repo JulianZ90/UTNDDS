@@ -4,7 +4,6 @@ package org.uqbar.xunit
 abstract class AbstractTest implements Test {
 
 	
-	
 	@Override
 	def run(Reporter reporter) {
 		this.before()
@@ -66,5 +65,9 @@ abstract class AbstractTest implements Test {
 		}
 	}
 	
+	@Override
+	public String toString() {
+		return this.class.name;
+	}
 	
 }
