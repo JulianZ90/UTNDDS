@@ -16,8 +16,8 @@ class ConsoleReporter implements Reporter {
 
 	@Override
 	def error(Test test, Exception ex) {
-		printResult(test, "ERROR", ex.message)
-	//	ex.printStackTrace();
+		printResult(test, "ERROR", "${ex.class.simpleName}  ${ex.message}")
+
 	}
 
 	@Override

@@ -4,7 +4,7 @@ package org.uqbar.xunit
  * Se espera que este test falle con error
  *
  */
-class DivisionErrorWithUnexpectedExceptionTest extends AbstractTest {
+class DivisionErrorWithUnexpectedExceptionExample extends AbstractTest {
 
 	@Override
 	def test() {

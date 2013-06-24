@@ -1,6 +1,6 @@
 package org.uqbar.xunit
 
-class SumaSuccessManyAssertions extends AbstractTest {
+class SumaSuccessManyAssertionsExample extends AbstractTest {
 
 	@Override
 	def test() {

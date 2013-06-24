@@ -4,17 +4,17 @@ class AssertExceptionTest extends XUnitTest {
 
 	@org.junit.Test
 	void success() {
-		assertSuccess(run(new DivisionSuccessWithExceptionTest()))
+		assertSuccess(run(new DivisionSuccessWithExceptionExample()))
 	}
 	
 	@org.junit.Test
 	void failure() {
-		assertFailure(run(new DivisionFailureWithoutExceptionTest()))
+		assertFailure(run(new DivisionFailureWithoutExceptionExample()))
 	}
 	
 	@org.junit.Test
 	void error() {
-		assertError(RuntimeException.class, run(new DivisionErrorWithUnexpectedExceptionTest()))
+		assertError(RuntimeException.class, run(new DivisionErrorWithUnexpectedExceptionExample()))
 	}
 	
 	

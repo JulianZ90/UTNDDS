@@ -1,6 +1,6 @@
 package org.uqbar.xunit
 
-class SumaSuccessWithEnvironmentTest extends AbstractTest {
+class SumaSuccessWithEnvironmentExample extends AbstractTest {
 
 	def a,b
 	
