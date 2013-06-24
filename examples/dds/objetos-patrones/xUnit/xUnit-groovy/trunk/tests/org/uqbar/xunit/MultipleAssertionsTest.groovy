@@ -4,11 +4,11 @@ class MultipleAssertionsTest extends XUnitTest {
 
 	@org.junit.Test
 	void success() {
-		assertSuccess(run(new SumaSuccessManyAssertions()))
+		assertSuccess(run(new SumaSuccessManyAssertionsExample()))
 	}
 
 	@org.junit.Test
 	void failure() {
-		assertFailure(SumaFailureManyAssertions.MESSAGE, run(new SumaFailureManyAssertions()))
+		assertFailure(SumaFailureManyAssertionsExample.MESSAGE, run(new SumaFailureManyAssertionsExample()))
 	}
 }

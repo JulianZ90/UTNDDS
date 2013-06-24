@@ -6,6 +6,6 @@ class TestRunTest extends XUnitTest {
 
 	@Test
 	void run() {
-		assertSuccess(run(new SumaSuccessTest()));	
+		assertSuccess(run(new SumaSuccessExample()));	
 	}
 }

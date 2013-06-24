@@ -4,10 +4,10 @@ import static org.junit.Assert.*;
 
 class CompositeTestTest extends XUnitTest{
 
-	def successful1 = new SumaSuccessTest();
-	def successful2 = new SumaSuccessTest();
-	def failure1 = new SumaFailureTest();
-	def failure2 = new SumaFailureTest(); 
+	def successful1 = new SumaSuccessExample();
+	def successful2 = new SumaSuccessExample();
+	def failure1 = new SumaFailureExample();
+	def failure2 = new SumaFailureExample(); 
 	
 	@org.junit.Test 
 	void ambosBien() {

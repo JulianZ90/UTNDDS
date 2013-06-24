@@ -1,6 +1,6 @@
 package org.uqbar.xunit
 
-class SumaFailureManyAssertions extends AbstractTest {
+class SumaFailureManyAssertionsExample extends AbstractTest {
 
 	static MESSAGE = "Error a proposito"
 

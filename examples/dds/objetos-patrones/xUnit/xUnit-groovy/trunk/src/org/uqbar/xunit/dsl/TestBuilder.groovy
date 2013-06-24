@@ -4,7 +4,7 @@ import org.uqbar.xunit.CompositeTest;
 import org.uqbar.xunit.Reporter;
 import org.uqbar.xunit.all.ConsoleReporter
 
-class DslTest {
+class TestBuilder {
 
 	def befores = []
 	def afters = []
@@ -41,6 +41,6 @@ class DslTest {
 	}
 
 	def static run(reporter = new ConsoleReporter(), bloque) {
-		new DslTest().with(bloque).run(reporter)
+		new TestBuilder().with(bloque).run(reporter)
 	}
 }

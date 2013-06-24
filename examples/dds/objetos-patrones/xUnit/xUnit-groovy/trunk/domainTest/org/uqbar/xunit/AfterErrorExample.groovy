@@ -1,6 +1,6 @@
 package org.uqbar.xunit
 
-class AfterErrorTest extends AbstractTest {
+class AfterErrorExample extends AbstractTest {
 
 	@Override
 	def test() {

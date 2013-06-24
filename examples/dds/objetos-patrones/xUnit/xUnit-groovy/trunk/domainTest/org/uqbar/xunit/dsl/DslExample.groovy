@@ -2,7 +2,7 @@ package org.uqbar.xunit.dsl
 
 import org.uqbar.xunit.all.ConsoleReporter
 
-class DslExample extends DslTest {{
+class DslExample extends TestBuilder {{
 	before { 
 		a = 5
 	}
