@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 
 
-abstract class XUnitTest {
+abstract class XUnitJUnitTest {
 
 	ReporterStub reporter = new ReporterStub() 
 	

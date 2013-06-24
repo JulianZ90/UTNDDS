@@ -1,6 +1,6 @@
 package org.uqbar.xunit
 
-class AssertExceptionTest extends XUnitTest {
+class AssertExceptionJUnitTest extends XUnitJUnitTest {
 
 	@org.junit.Test
 	void success() {

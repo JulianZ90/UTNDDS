@@ -2,7 +2,7 @@ package org.uqbar.xunit;
 
 import static org.junit.Assert.*;
 
-class CompositeTestTest extends XUnitTest{
+class CompositeTestJUnitTest extends XUnitJUnitTest{
 
 	def successful1 = new SumaSuccessExample();
 	def successful2 = new SumaSuccessExample();
