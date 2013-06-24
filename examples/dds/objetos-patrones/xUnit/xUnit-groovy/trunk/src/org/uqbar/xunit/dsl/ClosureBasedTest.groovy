@@ -5,7 +5,6 @@ import org.uqbar.xunit.AbstractTest
 
 class ClosureBasedTest extends AbstractTest {
 
-	def dynamicProperties = [:]
 	
 	def beforeBlocks = []
 	def afterBlocks = []
@@ -35,13 +34,8 @@ class ClosureBasedTest extends AbstractTest {
 	}
 	
 	@Override
-	def propertyMissing(String property) {
-		dynamicProperties[property]			
-	}
-	
-	@Override
 	def propertyMissing(String property, value) {
-		dynamicProperties[property] = value
+		this.metaClass[property] = value
 	}
 	
 
