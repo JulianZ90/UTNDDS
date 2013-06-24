@@ -9,9 +9,14 @@ class ClosureBasedTest extends AbstractTest {
 	def beforeBlocks = []
 	def afterBlocks = []
 	def testBlock
+	def description
 	
 	public ClosureBasedTest() {
 
+	}
+	public ClosureBasedTest(description, testBlock) {
+		this.description = description
+		this.testBlock = testBlock
 	}
 	@Override
 	def before() {
@@ -38,6 +43,10 @@ class ClosureBasedTest extends AbstractTest {
 		this.metaClass[property] = value
 	}
 	
+	@Override
+	public String toString() {
+		return description != null ? description : super.toString()
+	}
 
 	
 
