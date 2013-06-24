@@ -1,6 +1,7 @@
 package org.uqbar.xunit.all
 import org.uqbar.xunit.*
 import org.uqbar.xunit.dsl.ClosureBasedTest
+import org.uqbar.xunit.dsl.DslExample;
 
 
 class AllTestRunner {
@@ -17,7 +18,8 @@ class AllTestRunner {
 							new SumaSuccessTest(), 
 							new SumaSuccessWithEnvironmentTest(),
 							new ClosureBasedTest("AssertTrueSuccessTest", {assertTrue("esto deberia estar bien", true)}),
-							new ClosureBasedTest("AssertTrueFailureTest",{assertTrue("esto esta mal a proposito", false)})
+							new ClosureBasedTest("AssertTrueFailureTest",{assertTrue("esto esta mal a proposito", false)}),
+							new DslExample()
 							])
 		.run(reporter)
 		
