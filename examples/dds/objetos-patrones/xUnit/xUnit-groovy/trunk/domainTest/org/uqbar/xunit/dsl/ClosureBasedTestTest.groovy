@@ -3,11 +3,11 @@ package org.uqbar.xunit.dsl
 import org.junit.Assert;
 import org.junit.Test;
 import org.uqbar.xunit.ReporterStub;
-import org.uqbar.xunit.XUnitTest
+import org.uqbar.xunit.XUnitJUnitTest
 import org.uqbar.xunit.dsl.ClosureBasedTest;
 
 
-class ClosureBasedTestTest extends XUnitTest {
+class ClosureBasedTestTest extends XUnitJUnitTest {
 
 
 	@Test

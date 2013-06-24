@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-class EnvironmentTest extends XUnitTest {
+class EnvironmentJUnitTest extends XUnitJUnitTest {
 	
 	@Test
 	void environment() {

@@ -1,6 +1,6 @@
 package org.uqbar.xunit
 
-class MultipleAssertionsTest extends XUnitTest {
+class MultipleAssertionsJUnitTest extends XUnitJUnitTest {
 
 	@org.junit.Test
 	void success() {

@@ -2,7 +2,7 @@ package org.uqbar.xunit
 
 import org.junit.Test;
 
-class TestRunTest extends XUnitTest {
+class TestRunJUnitTest extends XUnitJUnitTest {
 
 	@Test
 	void run() {

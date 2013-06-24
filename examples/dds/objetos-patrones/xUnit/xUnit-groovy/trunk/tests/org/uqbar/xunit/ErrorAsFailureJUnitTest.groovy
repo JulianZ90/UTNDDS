@@ -2,7 +2,7 @@ package org.uqbar.xunit
 
 import org.junit.Test;
 
-class ErrorAsFailureTest extends XUnitTest {
+class ErrorAsFailureJUnitTest extends XUnitJUnitTest {
 	
 	@Test
 	void testMethodThrowException() {
