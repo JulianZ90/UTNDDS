@@ -67,7 +67,7 @@ abstract class AbstractTest implements Test {
 	
 	@Override
 	public String toString() {
-		return this.class.name;
+		return this.class.simpleName;
 	}
 	
 }
