@@ -2,7 +2,7 @@ package org.uqbar.xunit.dsl
 
 import org.uqbar.xunit.all.ConsoleReporter;
 
-class DslStandaloneExample extends TestBuilder {
+class DslStandaloneExample extends DslTest {
 	public static void main(String[] args) {
 		run {
 			before { a = 5 }
