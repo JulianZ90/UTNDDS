@@ -2,13 +2,13 @@ package org.uqbar.xunit.dsl
 
 import org.uqbar.xunit.CompositeTest;
 import org.uqbar.xunit.Reporter;
+import org.uqbar.xunit.all.ConsoleReporter
 
 class DslTest {
 
 	def befores = []
 	def afters = []
 	def tests = [:]
-	
 	
 	def before(Closure before) {
 		befores.add(before)
@@ -40,4 +40,7 @@ class DslTest {
 		this.build().run(reporter)		
 	}
 
+	def static run(reporter = new ConsoleReporter(), bloque) {
+		new DslTest().with(bloque).run(reporter)
+	}
 }
