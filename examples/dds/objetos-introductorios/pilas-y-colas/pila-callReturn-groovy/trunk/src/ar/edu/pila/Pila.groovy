@@ -21,8 +21,8 @@ class Pila {
 		new Pila(valores + valor)
 	}
 	
-	def sacar(valor) {
-		new Pila(valores - valor)
+	def sacar() {
+		new Pila(valores - tope())
 	}
 	
 	String toString() {
@@ -31,7 +31,7 @@ class Pila {
 	
 	def tope() {
 		if (valores) {
-			valores.first()
+			valores.last()
 		} else {
 			null
 		}
