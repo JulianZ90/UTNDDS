@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ui.uqbar</groupId>
-	<artifactId>clienteTarjetaCredito-domain-scala</artifactId>
+	<artifactId>clientesTarjetaCredito-domain-scala</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>clienteTarjetaCredito-domain-scala</name>
+	<name>clientesTarjetaCredito-domain-scala</name>
 	<description>Clientes de una tarjeta de crédito</description>
 
 
