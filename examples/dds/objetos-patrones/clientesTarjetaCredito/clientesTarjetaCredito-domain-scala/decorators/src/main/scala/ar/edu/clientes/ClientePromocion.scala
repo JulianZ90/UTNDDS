@@ -11,4 +11,8 @@ class ClientePromocion(pCliente: AbstractCliente) extends AbstractClienteDecorat
     }
   }
 
+  override def decoracion(): String = {
+    "Promoción"
+  }
+
 }
