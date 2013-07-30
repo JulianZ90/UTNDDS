@@ -9,13 +9,13 @@ class ClientePosta(pNombre : String, pSaldo : Int) extends AbstractCliente {
 
   override def comprar(monto: Int) = {
     if (monto > saldo) {
-      throw new BusinessException("Monto máximo excedido")
+      throw new BusinessException("El monto de la compra " + monto + " supera el saldo (" + saldo + ")")
     }
     saldo = saldo - monto
   }
 
   override def montoCredito() : Int = {
-    return saldo 
+    saldo 
   }
 
 }

@@ -1,17 +1,17 @@
 package ar.edu.clientes
 
-class AbstractClienteDecorator(pCliente: AbstractCliente) extends AbstractCliente {
+abstract class AbstractClienteDecorator(pCliente: AbstractCliente) extends AbstractCliente {
 
   var cliente = pCliente
 
   override def nombre(): String = {
-    cliente.nombre
+    cliente.nombre + "(" + this.decoracion + ")"
   }
   
   override def saldo(): Int = {
     cliente.saldo
   }
-
+  
   override def comprar(monto: Int) = {
     cliente.comprar(monto)
   }
@@ -20,4 +20,6 @@ class AbstractClienteDecorator(pCliente: AbstractCliente) extends AbstractClient
     cliente.montoCredito
   }
 
+  def decoracion() : String
+  
 }
