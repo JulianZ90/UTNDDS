@@ -8,6 +8,9 @@ class Sala {
 	@Property
 	var List<Asiento> asientos = new ArrayList
 	
+	@Property
+	var boolean estaEmpezada
+	
 	public static def getInstance(){
 		 if(instance == null){
 		 	instance = new Sala 
@@ -17,6 +20,7 @@ class Sala {
 	
 	new (){
 		(1..100).forEach[i| asientos += Asiento.libre ]
+		estaEmpezada = false
 	}
 	
 	
