@@ -8,7 +8,7 @@ import static org.junit.Assert.*
 class AcomodadorTest {
 	
 	@Test
-	def testReservarUnAsiento(){
+	def testReservarUnAsientoLoDejaOcupado(){
 		Sala.instance.asientos.forEach[unAsiento | assertFalse(unAsiento.estaOcupado)]
 		var reservado = Acomodador.reservar
 		assertNotNull(reservado.estaOcupado)
@@ -16,7 +16,7 @@ class AcomodadorTest {
 	}
 	
 	@Test
-	def testCancelarAsientoReservado(){
+	def testCancelarAsientoReservadoLoDejaLibre(){
 		Sala.instance.asientos.forEach[unAsiento | assertFalse(unAsiento.estaOcupado)]
 		var reservado = Acomodador.reservar
 		
@@ -25,7 +25,7 @@ class AcomodadorTest {
 	}
 	
 	@Test
-	def testArrancarLaFuncionLaDejaEmpezada(){
+	def testComenzarLaFuncionLaDejaEmpezada(){
 		assertFalse(Sala.instance.estaEmpezada)		
 		Acomodador.comienzaLaFuncion()
 		assertTrue(Sala.instance.estaEmpezada)
