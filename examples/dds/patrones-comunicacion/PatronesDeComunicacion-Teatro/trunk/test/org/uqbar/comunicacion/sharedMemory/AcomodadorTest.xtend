@@ -1,7 +1,7 @@
 package org.uqbar.comunicacion.sharedMemory
 
 import org.junit.Test
-import org.uqbar.comunicacion.sharedMemory.shared.SFuncion
+import org.uqbar.comunicacion.sharedMemory.shared.Funcion
 
 import static org.junit.Assert.*
 
@@ -9,17 +9,16 @@ class AcomodadorTest {
 	
 	@Test
 	def testReservarUnAsiento(){
-		assertNull(SFuncion.instance.ultimoAsientoReservado)
-		SAcomodador.reservar
-		assertNotNull(SFuncion.instance.ultimoAsientoReservado)
+		var reservado = Acomodador.reservar
+		assertTrue(reservado.estaOcupado)
 	}
+	
 	
 	@Test
 	def testCancelarAsientoReservado(){
-		SAcomodador.reservar
-		SFuncion.instance.asientoACancelar = SFuncion.instance.ultimoAsientoReservado
-		
-		SAcomodador.cancelar
-		assertFalse(SFuncion.instance.ultimoAsientoReservado.estaOcupado) 
+		Funcion.instance.asientos.forEach[unAsiento | assertFalse(unAsiento.estaOcupado)]
+		var reservado = Acomodador.reservar
+		Acomodador.cancelar(reservado)
+		assertFalse(reservado.estaOcupado) 
 	}
 }
