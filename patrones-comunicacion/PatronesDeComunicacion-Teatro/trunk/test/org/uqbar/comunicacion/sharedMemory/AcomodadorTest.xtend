@@ -11,6 +11,7 @@ class AcomodadorTest {
 	def testReservarUnAsiento(){
 		Sala.instance.asientos.forEach[unAsiento | assertFalse(unAsiento.estaOcupado)]
 		var reservado = Acomodador.reservar
+		assertNotNull(reservado.estaOcupado)
 		assertTrue(reservado.estaOcupado)
 	}
 	
@@ -21,5 +22,21 @@ class AcomodadorTest {
 		
 		Acomodador.cancelar(reservado)
 		assertFalse(reservado.estaOcupado) 
+	}
+	
+	@Test
+	def testArrancarLaFuncionLaDejaEmpezada(){
+		assertFalse(Sala.instance.estaEmpezada)		
+		Acomodador.comienzaLaFuncion()
+		assertTrue(Sala.instance.estaEmpezada)
+	}
+	
+	@Test
+	def testNoSePuedenReservarEntradasEmpezadaLaFuncion(){
+		assertFalse(Sala.instance.estaEmpezada)		
+		Acomodador.comienzaLaFuncion()
+		assertTrue(Sala.instance.estaEmpezada)
+		
+		assertNull(Acomodador.reservar)
 	}
 }
