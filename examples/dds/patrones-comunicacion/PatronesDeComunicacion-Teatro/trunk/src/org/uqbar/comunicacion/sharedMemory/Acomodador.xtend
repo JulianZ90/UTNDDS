@@ -17,4 +17,8 @@ class Acomodador {
 		aCancelar.estaOcupado = false
 	}
 	
+	def static comienzaLaFuncion(){
+		Sala.instance.estaEmpezada = true
+	}
+	
 }
