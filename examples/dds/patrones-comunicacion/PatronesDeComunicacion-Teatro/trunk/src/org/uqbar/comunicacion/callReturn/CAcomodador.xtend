@@ -1,7 +1,7 @@
 package org.uqbar.comunicacion.callReturn
 
 import java.util.List
-import org.uqbar.comunicacion.sharedMemory.shared.Asiento
+import org.uqbar.comunicacion.sharedMemory.singleton.Asiento
 
 class CAcomodador {
 	
