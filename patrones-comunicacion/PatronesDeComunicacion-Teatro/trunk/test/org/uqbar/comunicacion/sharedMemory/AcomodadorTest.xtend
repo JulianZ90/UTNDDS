@@ -1,7 +1,8 @@
 package org.uqbar.comunicacion.sharedMemory
 
 import org.junit.Test
-import org.uqbar.comunicacion.sharedMemory.shared.Sala
+import org.uqbar.comunicacion.sharedMemory.singleton.Acomodador
+import org.uqbar.comunicacion.sharedMemory.singleton.Sala
 
 import static org.junit.Assert.*
 
