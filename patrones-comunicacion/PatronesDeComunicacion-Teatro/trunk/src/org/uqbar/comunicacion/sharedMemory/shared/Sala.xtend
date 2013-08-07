@@ -3,14 +3,14 @@ package org.uqbar.comunicacion.sharedMemory.shared
 import java.util.ArrayList
 import java.util.List
 
-class Funcion {
-	var static Funcion instance
+class Sala {
+	var static Sala instance
 	@Property
 	var List<Asiento> asientos = new ArrayList
 	
 	public static def getInstance(){
 		 if(instance == null){
-		 	instance = new Funcion 
+		 	instance = new Sala 
 		 }
 		 return instance
 	}
