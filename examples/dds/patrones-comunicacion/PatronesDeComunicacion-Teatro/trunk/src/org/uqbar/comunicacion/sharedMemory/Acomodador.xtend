@@ -1,12 +1,12 @@
 package org.uqbar.comunicacion.sharedMemory
 
 import org.uqbar.comunicacion.sharedMemory.shared.Asiento
-import org.uqbar.comunicacion.sharedMemory.shared.Funcion
+import org.uqbar.comunicacion.sharedMemory.shared.Sala
 
 class Acomodador {
 	
 	def static reservar(){
-		val asientoLibre = Funcion.instance.asientos.findFirst[unAsiento | ! unAsiento.estaOcupado ]
+		val asientoLibre = Sala.instance.asientos.findFirst[unAsiento | ! unAsiento.estaOcupado ]
 		asientoLibre.estaOcupado = true
 		return asientoLibre
 	}
