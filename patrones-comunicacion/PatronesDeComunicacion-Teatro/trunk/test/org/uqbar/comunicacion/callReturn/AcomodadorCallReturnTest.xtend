@@ -4,17 +4,17 @@ import java.util.ArrayList
 import java.util.List
 import org.junit.Before
 import org.junit.Test
-import org.uqbar.comunicacion.sharedMemory.shared.SAsiento
+import org.uqbar.comunicacion.sharedMemory.shared.Asiento
 
 import static org.junit.Assert.*
 
 class AcomodadorCallReturnTest {
-	var List<SAsiento> asientos
+	var List<Asiento> asientos
 	
 	@Before
 	def setUp(){
 		asientos = new ArrayList()
-		(1..100).forEach[i| asientos += SAsiento.libre ]
+		(1..100).forEach[i| asientos += Asiento.libre ]
 	}
 	
 	@Test
