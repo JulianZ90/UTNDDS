@@ -1,9 +1,11 @@
 package org.uqbar.comunicacion.sharedMemory.singleton
 
 import java.util.List
+import org.uqbar.comunicacion.Asiento
 
 class Sala {
 	var static Sala instance
+	
 	@Property
 	var List<Asiento> asientos = asientosIniciales
 	

@@ -1,4 +1,4 @@
-package org.uqbar.comunicacion.sharedMemory
+package org.uqbar.comunicacion.sharedMemory.singleton
 
 import org.junit.Test
 import org.uqbar.comunicacion.sharedMemory.singleton.Acomodador

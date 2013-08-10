@@ -4,7 +4,7 @@ import java.util.ArrayList
 import java.util.List
 import org.junit.Before
 import org.junit.Test
-import org.uqbar.comunicacion.sharedMemory.singleton.Asiento
+import org.uqbar.comunicacion.Asiento
 
 import static org.junit.Assert.*
 
@@ -20,17 +20,17 @@ class AcomodadorCallReturnTest {
 	@Test
 	def testReservarUnAsiento(){
 		asientos.forEach[unAsiento | assertFalse(unAsiento.estaOcupado)]
-		var asiento = CAcomodador.reservar(asientos)
+		var asiento = Acomodador.reservar(asientos)
 		assertTrue(asiento.estaOcupado)
 	}
 	
 	@Test
 	def testCancelarAsientoReservado(){
 		asientos.forEach[unAsiento | assertFalse(unAsiento.estaOcupado)]
-		var asiento = CAcomodador.reservar(asientos)
+		var asiento = Acomodador.reservar(asientos)
 		assertTrue(asiento.estaOcupado)
 		
-		CAcomodador.cancelar(asientos, asiento)
+		Acomodador.cancelar(asientos, asiento)
 		assertFalse(asiento.estaOcupado)
 		asientos.forEach[unAsiento | assertFalse(unAsiento.estaOcupado)]
 	}
