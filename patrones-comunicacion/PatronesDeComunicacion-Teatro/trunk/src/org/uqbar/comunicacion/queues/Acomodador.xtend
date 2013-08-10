@@ -5,18 +5,11 @@ import java.util.LinkedList
 import java.util.List
 import java.util.Queue
 import org.uqbar.comunicacion.Asiento
+import org.uqbar.comunicacion.NoHayLugarException
 import org.uqbar.comunicacion.NotificadorReserva
 import org.uqbar.comunicacion.Sala
 
-class PedidoReserva {
-	@Property int cantidadAReservar
-	@Property NotificadorReserva notificador
-
-	new(int cantidadAReservar, NotificadorReserva notificador) {
-		this.cantidadAReservar = cantidadAReservar
-		this.notificador = notificador
-	}
-}
+import static extension org.uqbar.comunicacion.Extensions.*
 
 class Acomodador {
 	@Property Sala sala
@@ -31,23 +24,33 @@ class Acomodador {
 	}
 
 	def procesarPedido(PedidoReserva pedido) {
+		if (sala.estaEmpezada) {
+			pedido.notificador.empezoLaFuncion
+			return
+		}
+
 		val asientosReservados = new ArrayList<Asiento>
 		while (asientosReservados.size < pedido.cantidadAReservar) {
-			val asientoLibre = sala.asientos.findFirst[!it.isEstaOcupado]
-			if (asientoLibre == null) {
+			try {
+				val asientoElegido = sala.asientosLibres.anyOne
+				sala.ocupar(asientoElegido)
+				asientosReservados += asientoElegido
+			}
+			catch (NoHayLugarException ex) {
 				pedido.notificador.lugarInsuficiente(asientosReservados)
 				return
-			}
-
-			asientoLibre.estaOcupado = true
-			asientosReservados += asientoLibre
+			} 
 		}
 
 		pedido.notificador.seReservaronAsientos(asientosReservados)
+	}
 
+	def elegirAsiento(Iterable<Asiento> asientosLibres) {
+		if(asientosLibres.empty) throw new NoHayLugarException
+		asientosLibres.anyOne
 	}
 
 	def cancelar(List<Asiento> asientosReservados) {
-		asientosReservados.forEach[it.estaOcupado = false]
+		asientosReservados.forEach[sala.liberar(it)]
 	}
 }

@@ -14,8 +14,20 @@ class Sala {
 		(1 .. 100).map[Asiento.libre].toList
 	}
 
+	def asientosLibres() {
+		asientos.filter[it.estaLibre]
+	}
+
 	def comienzaLaFuncion(Sala sala) {
 		sala.estaEmpezada = true
+	}
+
+	def ocupar(Asiento asiento) {
+		asiento.estaOcupado = true
+	}
+
+	def liberar(Asiento asiento) {
+		asiento.estaOcupado = false
 	}
 
 }

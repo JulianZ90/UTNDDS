@@ -23,4 +23,11 @@ class Sala {
 		(1..100).map[ Asiento.libre ].toList
 	}
 	
+	def asientosLibres() {
+		asientos.filter[it.estaLibre]
+	}
+
+	def comienzaLaFuncion() {
+		instance.estaEmpezada = true
+	}
 }
