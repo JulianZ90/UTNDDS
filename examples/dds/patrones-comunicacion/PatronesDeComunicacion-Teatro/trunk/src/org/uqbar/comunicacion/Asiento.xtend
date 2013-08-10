@@ -1,4 +1,4 @@
-package org.uqbar.comunicacion.sharedMemory.singleton
+package org.uqbar.comunicacion
 
 class Asiento {
 	@Property boolean estaOcupado
