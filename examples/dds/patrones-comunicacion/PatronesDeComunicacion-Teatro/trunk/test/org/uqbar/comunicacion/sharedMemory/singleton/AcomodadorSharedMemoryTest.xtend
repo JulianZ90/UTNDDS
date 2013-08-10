@@ -10,7 +10,7 @@ class AcomodadorSharedMemoryTest {
 	
 	@Test
 	def testReservarUnAsientoLoDejaOcupado(){
-		Sala.instance.asientos.forEach[unAsiento | assertFalse(unAsiento.estaOcupado)]
+		Sala.instance.asientos.forEach[assertFalse(it.estaOcupado)]
 		var reservado = Acomodador.reservar
 		assertNotNull(reservado.estaOcupado)
 		assertTrue(reservado.estaOcupado)
@@ -18,7 +18,7 @@ class AcomodadorSharedMemoryTest {
 	
 	@Test
 	def testCancelarAsientoReservadoLoDejaLibre(){
-		Sala.instance.asientos.forEach[unAsiento | assertFalse(unAsiento.estaOcupado)]
+		Sala.instance.asientos.forEach[assertFalse(it.estaOcupado)]
 		var reservado = Acomodador.reservar
 		
 		Acomodador.cancelar(reservado)

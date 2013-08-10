@@ -6,7 +6,7 @@ import org.uqbar.comunicacion.Sala
 import static org.junit.Assert.*
 
 class AcomodadorCallReturnTest {
-	var Sala sala = new Sala
+	val sala = new Sala
 
 	@Test
 	def testReservarUnAsiento() {
