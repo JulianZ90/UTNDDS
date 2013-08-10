@@ -3,6 +3,7 @@ package org.uqbar.comunicacion.continuations
 import java.util.ArrayList
 import java.util.List
 import org.uqbar.comunicacion.Asiento
+import org.uqbar.comunicacion.NotificadorReserva
 import org.uqbar.comunicacion.Sala
 
 class Acomodador {
