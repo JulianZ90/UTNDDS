@@ -3,8 +3,10 @@ package org.uqbar.comunicacion.continuations
 import java.util.ArrayList
 import java.util.List
 import org.uqbar.comunicacion.Asiento
+import org.uqbar.comunicacion.NoHayLugarException
 import org.uqbar.comunicacion.NotificadorReserva
 import org.uqbar.comunicacion.Sala
+import static extension org.uqbar.comunicacion.Extensions.*
 
 class Acomodador {
 	@Property var Sala sala
@@ -17,20 +19,26 @@ class Acomodador {
 
 		val asientosReservados = new ArrayList<Asiento>
 		while (asientosReservados.size < cantidadAReservar) {
-			val asientoLibre = sala.asientos.findFirst[!it.isEstaOcupado]
-			if (asientoLibre == null) {
+			try {
+				val asientoElegido = sala.asientosLibres.anyOne
+				sala.ocupar(asientoElegido)
+				asientosReservados += asientoElegido
+			}
+			catch (NoHayLugarException ex) {
 				notificador.lugarInsuficiente(asientosReservados)
 				return
-			}
-
-			asientoLibre.estaOcupado = true
-			asientosReservados += asientoLibre
+			} 
 		}
 
 		notificador.seReservaronAsientos(asientosReservados)
 	}
 
+	def elegirAsiento(Iterable<Asiento> asientosLibres) {
+		if(asientosLibres.empty) throw new NoHayLugarException
+		asientosLibres.anyOne
+	}
+
 	def cancelar(List<Asiento> asientosReservados) {
-		asientosReservados.forEach[it.estaOcupado = false]
+		asientosReservados.forEach[sala.liberar(it)]
 	}
 }

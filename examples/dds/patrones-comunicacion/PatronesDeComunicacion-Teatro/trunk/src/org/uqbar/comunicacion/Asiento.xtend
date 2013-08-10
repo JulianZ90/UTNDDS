@@ -9,4 +9,7 @@ class Asiento {
 		asiento
 	}
 	
+	def estaLibre() {
+		!estaOcupado
+	}
 }

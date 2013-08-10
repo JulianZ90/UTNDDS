@@ -24,20 +24,4 @@ class AcomodadorSharedMemoryTest {
 		Acomodador.cancelar(reservado)
 		assertFalse(reservado.estaOcupado) 
 	}
-	
-	@Test
-	def testComenzarLaFuncionLaDejaEmpezada(){
-		assertFalse(Sala.instance.estaEmpezada)		
-		Acomodador.comienzaLaFuncion()
-		assertTrue(Sala.instance.estaEmpezada)
-	}
-	
-	@Test
-	def testNoSePuedenReservarEntradasEmpezadaLaFuncion(){
-		assertFalse(Sala.instance.estaEmpezada)		
-		Acomodador.comienzaLaFuncion()
-		assertTrue(Sala.instance.estaEmpezada)
-		
-		assertNull(Acomodador.reservar)
-	}
 }

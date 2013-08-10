@@ -6,33 +6,33 @@ import org.uqbar.comunicacion.Asiento
 import org.uqbar.comunicacion.NoHayLugarException
 import org.uqbar.comunicacion.Sala
 import org.uqbar.comunicacion.YaEmpezoLaFuncionException
+import static extension org.uqbar.comunicacion.Extensions.*
 
 class Acomodador {
 	@Property var Sala sala
 	@Property int cantidadAReservar
 	@Property List<Asiento> asientosReservados
-	
+
 	def reservar() {
 		if (sala.estaEmpezada) {
 			throw new YaEmpezoLaFuncionException
 		}
 
 		asientosReservados = new ArrayList
+
 		while (asientosReservados.size < cantidadAReservar) {
-			val asientoLibre = sala.asientos.findFirst[!it.isEstaOcupado]
-			if (asientoLibre == null) {
-				throw new NoHayLugarException
-			}
-			asientoLibre.estaOcupado = true
-			asientosReservados += asientoLibre
+			val asientoElegido = elegirAsiento(sala.asientosLibres)
+			sala.ocupar(asientoElegido)
+			asientosReservados += asientoElegido
 		}
 	}
 
-	def cancelar(Asiento aCancelar) {
-		aCancelar.estaOcupado = false
+	def elegirAsiento(Iterable<Asiento> asientosLibres) {
+		if(asientosLibres.empty) throw new NoHayLugarException
+		asientosLibres.anyOne
 	}
 
-	def comienzaLaFuncion(Sala sala) {
-		sala.estaEmpezada = true
+	def cancelar(Asiento aCancelar) {
+		sala.liberar(aCancelar)
 	}
 }

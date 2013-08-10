@@ -1,24 +1,16 @@
 package org.uqbar.comunicacion.sharedMemory.singleton
 
 import org.uqbar.comunicacion.Asiento
+import static extension org.uqbar.comunicacion.Extensions.*
 
 class Acomodador {
 	def static reservar() {
-		if (Sala.instance.estaEmpezada) {
-			return null
-		}
-
-		val asientoLibre = Sala.instance.asientos.findFirst[unAsiento|! unAsiento.estaOcupado]
-		asientoLibre.estaOcupado = true
-		return asientoLibre
+		val asientoElegido = Sala.instance.asientosLibres.anyOne
+		asientoElegido.estaOcupado = true
+		asientoElegido
 	}
 
 	def static cancelar(Asiento aCancelar) {
 		aCancelar.estaOcupado = false
 	}
-
-	def static comienzaLaFuncion() {
-		Sala.instance.estaEmpezada = true
-	}
-
 }
