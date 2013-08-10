@@ -14,4 +14,8 @@ class Sala {
 		(1 .. 100).map[Asiento.libre].toList
 	}
 
+	def comienzaLaFuncion(Sala sala) {
+		sala.estaEmpezada = true
+	}
+
 }
