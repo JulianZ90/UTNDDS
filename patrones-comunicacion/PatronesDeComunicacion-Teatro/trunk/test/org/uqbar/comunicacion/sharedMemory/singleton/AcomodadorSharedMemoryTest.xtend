@@ -6,7 +6,7 @@ import org.uqbar.comunicacion.sharedMemory.singleton.Sala
 
 import static org.junit.Assert.*
 
-class AcomodadorTest {
+class AcomodadorSharedMemoryTest {
 	
 	@Test
 	def testReservarUnAsientoLoDejaOcupado(){

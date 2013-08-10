@@ -1,6 +1,7 @@
-package org.uqbar.comunicacion.objetoso
+package org.uqbar.comunicacion.callReturn.objects
 
 import org.uqbar.comunicacion.Asiento
+import org.uqbar.comunicacion.Sala
 
 class Acomodador {
 	def static reservar(Sala sala) {
@@ -8,7 +9,7 @@ class Acomodador {
 			return null
 		}
 
-		val asientoLibre = sala.asientos.findFirst[unAsiento|! unAsiento.estaOcupado]
+		val asientoLibre = sala.asientos.findFirst[unAsiento|! unAsiento.isEstaOcupado]
 		asientoLibre.estaOcupado = true
 		return asientoLibre
 	}

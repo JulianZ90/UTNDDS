@@ -1,4 +1,4 @@
-package org.uqbar.comunicacion.objetoso
+package org.uqbar.comunicacion
 
 import java.util.List
 import org.uqbar.comunicacion.Asiento
