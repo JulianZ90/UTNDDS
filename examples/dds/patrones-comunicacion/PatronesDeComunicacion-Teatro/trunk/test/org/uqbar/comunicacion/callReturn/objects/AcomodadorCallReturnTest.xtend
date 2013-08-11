@@ -9,7 +9,7 @@ class AcomodadorCallReturnTest {
 	val sala = new Sala
 
 	@Test
-	def testReservarUnAsiento() {
+	def testReservarUnAsientoLoDejaOcupado() {
 		sala.asientos.forEach[assertTrue(it.estaLibre)]
 
 		var asiento = Acomodador.reservar(sala)
@@ -17,7 +17,7 @@ class AcomodadorCallReturnTest {
 	}
 
 	@Test
-	def testCancelarAsientoReservado() {
+	def testCancelarAsientoReservadoLoDejaLibre() {
 		sala.asientos.forEach[assertFalse(it.estaOcupado)]
 
 		var asiento = Acomodador.reservar(sala)
