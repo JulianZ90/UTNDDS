@@ -13,8 +13,8 @@ class Trigo extends Cultivo {
 		conservantes = new ArrayList<Conservante>()
 	}
 
+	// PUNTO 1
 	override double costoPara(Parcela parcela) {
-
 		// Uso del extension method
 		// se envía un mensaje min a un double !
 		super.costoPara(parcela).min(500)
@@ -24,6 +24,7 @@ class Trigo extends Cultivo {
 		5
 	}
 
+	// PUNTO 2
 	override precioVentaPorKg(Parcela parcela) {
 		super.precioVentaPorKg(parcela) - this.costoConservantes
 	}
@@ -33,7 +34,7 @@ class Trigo extends Cultivo {
 	}
 
 	def double costoConservantes() {
-		conservantes.fold(0.0, [acum, conservante|acum + conservante.precio])
+		conservantes.fold(0d, [acum, conservante|acum + conservante.precio])
 	}
 
 	override String toString() {

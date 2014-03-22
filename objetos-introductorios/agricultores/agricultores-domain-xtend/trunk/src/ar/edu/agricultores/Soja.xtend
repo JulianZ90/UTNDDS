@@ -4,11 +4,17 @@ import ar.edu.agricultores.Cultivo
 import ar.edu.agricultores.Parcela
 
 class Soja extends Cultivo {
+
+	override String toString() {
+		"Soja"	
+	}
 	
+	// PUNTO 1
 	override costoBasePorHectarea(Parcela parcela) {
 		10
 	}
 	
+	// PUNTO 2
 	override precioVentaPorKg(Parcela parcela) {
 		this.costoPara(parcela) * 10 * (1 - this.porcentajeDescuento(parcela))
 	}
@@ -21,8 +27,4 @@ class Soja extends Cultivo {
 		}
 	}
 
-	override String toString() {
-		"Soja"	
-	}
-	
 }

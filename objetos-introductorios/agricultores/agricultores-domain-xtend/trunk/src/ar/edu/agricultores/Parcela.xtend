@@ -13,6 +13,7 @@ class Parcela {
 		cultivo = pCultivo
 	}
 
+	// PUNTO 1
 	def double getCostoTotal() {
 		cultivo.costoPara(this)
 	}
@@ -21,10 +22,12 @@ class Parcela {
 		hectareas > 1000
 	}
 
+	// PUNTO 2
 	def double precioVenta() {
 		cultivo.precioVentaPorKg(this)
 	}
 	
+	// PUNTO 5
 	def estaSubutilizada() {
 		hectareasCultivadas / hectareas < 0.5 
 	}
