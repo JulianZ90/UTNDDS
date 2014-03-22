@@ -19,11 +19,6 @@ class Soja extends Cultivo {
 		if (totalHectareas > topeHectareas) {
 			retencionPosta = retencion
 		}
-		println("Tope: " + topeHectareas)
-		println("Total has: " + totalHectareas)
-		println("Costo por ha: " + costoTotal)
-		println("Retencion posta: " + retencionPosta)
-		println("Efecto: " + efecto)
 		(costoTotal * efecto) * (1 - retencionPosta)
 	}
 
