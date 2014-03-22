@@ -13,14 +13,12 @@ class Parcela {
 		cultivo = pCultivo
 	}
 
+	// PUNTO 1
 	def double getCostoTotal() {
 		cultivo.costo(hectareasCultivadas)
 	}
 
-	def boolean sujetaARetencion() {
-		hectareas > 1000
-	}
-
+	// PUNTO 2
 	def double precioVenta() {
 		if (cultivo.esSoja()) { // Soja y SojaTransgenica devuelven true
 			(cultivo as Soja).precioVenta(cultivo.costo(hectareasCultivadas), hectareas, 10d, 0.1, 1000)

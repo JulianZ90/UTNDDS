@@ -11,8 +11,10 @@ abstract class Cultivo {
 		conservantes = new ArrayList<Conservante>	
 	}
 	
+	// PUNTO 1
 	def double costo(int cantidadHectareasCultivadas)
 
+	// PUNTO 2
 	def boolean esSoja() {
 		false
 	}

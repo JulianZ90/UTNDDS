@@ -6,10 +6,12 @@ class Soja extends Cultivo {
 		"Soja"
 	}
 
+	// PUNTO 1
 	override costo(int cantidadHectareasCultivadas) {
 		10 * cantidadHectareasCultivadas
 	}
 
+	// PUNTO 2
 	override boolean esSoja() {
 		true
 	}
