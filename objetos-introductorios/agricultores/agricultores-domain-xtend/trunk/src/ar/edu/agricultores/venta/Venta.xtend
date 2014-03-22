@@ -11,7 +11,7 @@ class Venta {
 	@Property int cantidadKilos
 	@Property Comprador comprador
 	
-	def montoTotal() {
+	def precio() {
 		parcela.precioVenta * cantidadKilos * coeficienteAjuste
 	}
 	

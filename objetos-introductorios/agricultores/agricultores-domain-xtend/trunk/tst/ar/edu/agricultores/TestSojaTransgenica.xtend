@@ -1,8 +1,8 @@
 package ar.edu.agricultores
 
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import org.junit.Assert
 
 class TestSojaTransgenica {
 	
@@ -19,19 +19,20 @@ class TestSojaTransgenica {
 	
 	@Test
 	def testCostoSojaTransgenica() {
-		Assert::assertEquals(parcela50.costoTotal, 500, 0.1)
-		Assert::assertEquals(parcela200.costoTotal, 2000, 0.1)
+		Assert.assertEquals(500, parcela50.costoTotal, 0.1)
+		Assert.assertEquals(2000, parcela200.costoTotal, 0.1)
 	}	
 	
 	// PUNTO 2
 	
 	@Test
 	def testVentaSojaParcelaChica() {
-		Assert::assertEquals(parcela50.precioVenta, 2500, 0.1)
+		Assert.assertEquals(2500,parcela50.precioVenta, 0.1)
 	}		
 
 	@Test
 	def testVentaSojaParcelaGrande() {
-		Assert::assertEquals(parcela200.precioVenta, 20000, 0.1)
+		Assert.assertEquals(20000, parcela200.precioVenta, 0.1)
 	}	
+	
 }

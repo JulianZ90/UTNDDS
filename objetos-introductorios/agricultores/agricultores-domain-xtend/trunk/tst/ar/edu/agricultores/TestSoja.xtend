@@ -21,20 +21,20 @@ class TestSoja {
 	
 	@Test
 	def testCostoSoja() {
-		Assert::assertEquals(parcela50.costoTotal, 500, 0.1)
-		Assert::assertEquals(parcela300.costoTotal, 3000, 0.1)
+		Assert::assertEquals(500, parcela50.costoTotal, 0.1)
+		Assert::assertEquals(3000, parcela300.costoTotal, 0.1)
 	}		
 
 	// PUNTO 2
 	
 	@Test
 	def testVentaSojaParcelaChica() {
-		Assert::assertEquals(parcela300.precioVenta, 30000, 0.1)
+		Assert.assertEquals(30000, parcela300.precioVenta, 0.1)
 	}		
 
 	@Test
 	def testVentaSojaParcelaGrande() {
-		Assert::assertEquals(parcela2000.precioVenta, 180000, 0.1)
+		Assert.assertEquals(180000, parcela2000.precioVenta, 0.1)
 	}		
 		
 }

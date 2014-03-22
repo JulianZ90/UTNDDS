@@ -19,24 +19,24 @@ class TestSorgo {
 	
 	@Test
 	def testCostoSorgoParcela40() {
-		Assert::assertEquals(parcela40.costoTotal, 120, 0.1)
+		Assert::assertEquals(120, parcela40.costoTotal, 0.1)
 	}
 
 	@Test
 	def testCostoSorgoParcela200() {
-		Assert::assertEquals(parcela200.costoTotal, 400, 0.1)
+		Assert::assertEquals(400, parcela200.costoTotal, 0.1)
 	}
 	
 	// PUNTO 2
 	
 	@Test
-	def testVentaSojaParcelaChica() {
-		Assert::assertEquals(parcela40.precioVenta, 20, 0.1)
+	def testVentaSorgoParcelaChica() {
+		Assert.assertEquals(20, parcela40.precioVenta, 0.1)
 	}		
 
 	@Test
-	def testVentaSojaParcelaGrande() {
-		Assert::assertEquals(parcela200.precioVenta, 20, 0.1)
+	def testVentaSorgoParcelaGrande() {
+		Assert.assertEquals(20, parcela200.precioVenta, 0.1)
 	}
 			
 }

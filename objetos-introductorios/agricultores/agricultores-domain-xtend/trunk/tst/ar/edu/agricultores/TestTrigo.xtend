@@ -1,8 +1,8 @@
 package ar.edu.agricultores
 
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import org.junit.Assert
 
 class TestTrigo {
 
@@ -22,25 +22,24 @@ class TestTrigo {
 	
 	@Test
 	def testCostoBaseParcela200Hectareas() {
-		Assert::assertEquals(parcela200.costoTotal, 500, 0.1)
+		Assert.assertEquals(500, parcela200.costoTotal, 0.1)
 	}
 
 	@Test
 	def testCostoBaseParcela50Hectareas() {
-		Assert::assertEquals(parcela50.costoTotal, 250, 0.1)
+		Assert.assertEquals(250, parcela50.costoTotal, 0.1)
 	}
 
 	// PUNTO 2
 
 	@Test
 	def testVentaSojaParcelaChica() {
-		Assert::assertEquals(parcela50.precioVenta, 13, 0.1)
+		Assert.assertEquals(13, parcela50.precioVenta, 0.1)
 	}		
 
 	@Test
 	def testVentaSojaParcelaGrande() {
-		Assert::assertEquals(parcela200.precioVenta, 20, 0.1)
+		Assert.assertEquals(20, parcela200.precioVenta, 0.1)
 	}
-
 
 }
