@@ -1,13 +1,12 @@
 package ar.edu.agricultores
 
-import org.junit.Before
-import ar.edu.agricultores.venta.Venta
-import ar.edu.agricultores.venta.CompradorNacional
-import ar.edu.agricultores.Parcela
-import java.util.Date
-import org.junit.Test
-import org.junit.Assert
 import ar.edu.agricultores.venta.CompradorExtranjero
+import ar.edu.agricultores.venta.CompradorNacional
+import ar.edu.agricultores.venta.Venta
+import java.util.Date
+import org.junit.Assert
+import org.junit.Before
+import org.junit.Test
 
 class TestVenta {
 	
@@ -21,13 +20,17 @@ class TestVenta {
 		
 		ventaNacional = new Venta
 		ventaNacional.cantidadKilos = 12
+		// Cambio del refactor
 		ventaNacional.comprador = new CompradorNacional
+		//
 		ventaNacional.fechaVenta = new Date
 		ventaNacional.parcela = parcela50 
 
 		ventaExportacion = new Venta
 		ventaExportacion.cantidadKilos = 11
+		// Cambio del refactor
 		ventaExportacion.comprador = new CompradorExtranjero
+		//
 		ventaExportacion.fechaVenta = new Date
 		ventaExportacion.parcela = parcela50 
 	}
@@ -36,18 +39,18 @@ class TestVenta {
 	
 	@Test
 	def testVentaCompradorNacionalMenos500Kilos() {
-		Assert::assertEquals(ventaNacional.montoTotal, 240, 0.1)
+		Assert.assertEquals(240, ventaNacional.precio, 0.1)
 	}
 		
 	@Test
 	def testVentaCompradorNacionalMas500Kilos() {
 		ventaNacional.cantidadKilos = 600
-		Assert::assertEquals(ventaNacional.montoTotal, 13200, 0.1)
+		Assert.assertEquals(13200, ventaNacional.precio, 0.1)
 	}
 
 	@Test
 	def testVentaCompradorExtranjero() {
-		Assert::assertEquals(ventaExportacion.montoTotal, 308, 0.1)
+		Assert.assertEquals(308, ventaExportacion.precio, 0.1)
 	}
 		
 }

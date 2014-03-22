@@ -22,5 +22,12 @@ class Agricultor {
 
 	def void agregarParcela(Parcela parcela) {
 		parcelas.add(parcela)
-	}	
+	}
+	
+	def algunaParcelaSubutilizada() {
+		parcelas.exists [ parcela | parcela.estaSubutilizada ]
+	}
+	
 }
+
+
