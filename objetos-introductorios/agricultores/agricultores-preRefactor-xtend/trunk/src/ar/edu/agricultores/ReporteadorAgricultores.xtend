@@ -10,8 +10,12 @@ class ReporteadorAgricultores {
 
 	def Set<String> cultivos(Agricultor agricultor) {
 		cultivos = new ArrayList<String>
-		agricultor.parcelas.forEach [parcela|cultivos.addAll(parcela.cultivo.toString)]
+		agricultor.parcelas.forEach[parcela|cultivos.addAll(parcela.cultivo.toString)]
 		new HashSet(cultivos)
+	}
+
+	def algunaParcelaSubutilizada(Agricultor agricultor) {
+		agricultor.parcelas.exists[parcela|parcela.hectareasCultivadas / parcela.hectareas < 0.5]
 	}
 
 }
