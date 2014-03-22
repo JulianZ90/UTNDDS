@@ -6,12 +6,6 @@ class SojaTransgenica extends Soja {
 
 	@Property boolean puedeSufrirMutaciones
 
-	// super.costo(cantidadHectareasCultivadas)  
-	// No es un code smell “de libro”, pero uno lo ve en PDP
-	override costo(int cantidadHectareasCultivadas) {
-		10 * cantidadHectareasCultivadas
-	}
-
 	new(boolean pPuedeSufrirMutaciones) {
 		puedeSufrirMutaciones = pPuedeSufrirMutaciones
 	}
@@ -20,6 +14,14 @@ class SojaTransgenica extends Soja {
 		"Soja Transgenica"
 	}
 
+	// PUNTO 1
+	// super.costo(cantidadHectareasCultivadas)  
+	// No es un code smell “de libro”, pero uno lo ve en PDP
+	override costo(int cantidadHectareasCultivadas) {
+		10 * cantidadHectareasCultivadas
+	}
+
+	// PUNTO 2
 	override precioVenta(double costoTotal, int totalHectareas, double efecto, double retencion, int topeHectareas) {
 		var retencionPosta = 0d
 		if (totalHectareas > topeHectareas) {

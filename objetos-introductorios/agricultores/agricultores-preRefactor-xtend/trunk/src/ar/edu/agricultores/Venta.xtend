@@ -15,6 +15,7 @@ class Venta {
 
 	public static double COEFICIENTE_PARA_EXTRANJEROS = 0.4
 
+	// PUNTO 3
 	def precio() {
 		cantidadKilos * this.precioVentaDeLaParcela(this.parcela) * (1 + this.coeficienteDeAjuste())
 	}
