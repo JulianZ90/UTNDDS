@@ -10,25 +10,25 @@ class TestCliente {
 	Cliente francoConNovia
 	ClientePromocionDecorator francoEnPromo
 	Cliente francoConNoviaEnPromo
-	
+
 	@Before
 	def void init() {
 		franco = new ClientePosta
 		franco.saldo = 150
-		francoConNovia = new SafeShopDecorator(franco, 20)
+		francoConNovia = new SafeShopDecorator(franco, 55)
 		francoEnPromo = new ClientePromocionDecorator(franco)
 		francoConNoviaEnPromo = new ClientePromocionDecorator(francoConNovia)
 	}
-	
+
 	@Test
 	def void francoComprandoSinControl() {
 		franco.comprar(60)
 		Assert::assertEquals(90, franco.saldo)
 	}
-	
+
 	@Test(expected=typeof(BusinessException))
 	def void francoNoPuedeComprarConSafeShop() {
-		francoConNovia.comprar(30)
+		francoConNovia.comprar(60)
 	}
 
 	@Test
@@ -40,5 +40,12 @@ class TestCliente {
 	@Test(expected=typeof(BusinessException))
 	def void francoConSafeShopNoAcumulaPremios() {
 		francoConNoviaEnPromo.comprar(70)
-	}	
+	}
+
+//	@Test
+//	def void francoConSafeShopCompraElMinimoYAcumulaPremios() {
+//		francoConNoviaEnPromo.comprar(52)
+//		Assert::assertEquals(15, francoConNoviaEnPromo.puntosAcumulados)
+//	}
+
 }
