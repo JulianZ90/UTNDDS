@@ -20,4 +20,8 @@ class ClientePromocionDecorator extends ClienteDecorator {
 		}
 	}
 	
+	override def getPuntos() {
+		puntosAcumulados
+	}
+	
 }

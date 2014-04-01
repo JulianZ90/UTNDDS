@@ -10,12 +10,24 @@ class ClientePosta implements Cliente {
 		saldo = 0
 	}
 	
+	new(int unSaldo) {
+		saldo = unSaldo
+	}
+	
 	override comprar(int monto) {
-		saldo = saldo - monto
+		saldo = saldo + monto
 	}
 	
 	override pagarVencimiento(int monto) {
-		// TODO: Implementar
+		saldo = saldo - monto
+	}
+	
+	override esMoroso() {
+		saldo > 0
+	}
+	
+	override getPuntos() {
+		0
 	}
 	
 }
