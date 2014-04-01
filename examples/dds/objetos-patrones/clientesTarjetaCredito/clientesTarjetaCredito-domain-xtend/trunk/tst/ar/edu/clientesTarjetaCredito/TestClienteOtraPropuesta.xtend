@@ -8,9 +8,9 @@ import org.junit.Test
 class TestClienteOtraPropuesta {
 	
 	Cliente cliente
-	ClienteDecorator gastatutti
-	ClienteDecorator promosao
-	ClienteDecorator mixto
+	Cliente gastatutti
+	Cliente promosao
+	Cliente mixto
 
 	@Before
 	def void setUp() throws Exception {
