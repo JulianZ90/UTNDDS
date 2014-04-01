@@ -3,7 +3,7 @@ package ar.edu.clientesTarjetaCredito
 import ar.edu.clientesTarjetaCredito.ClienteDecorator
 import ar.edu.clientesTarjetaCredito.exceptions.BusinessException
 
-class SafeShopDecorator extends ClienteDecorator {
+class ClienteSafeShopDecorator extends ClienteDecorator {
 	int maximoCompra
 	
 	new(Cliente decorado, int pMaximoCompra) {

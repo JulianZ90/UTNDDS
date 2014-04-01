@@ -14,4 +14,16 @@ abstract class ClienteDecorator implements Cliente {
 		decorado.pagarVencimiento(monto)
 	}
 	
+	override getPuntos() {
+		decorado.puntos
+	} 
+	
+	override getSaldo() {
+		decorado.saldo
+	}
+	
+	override esMoroso() {
+		saldo > 0
+	} 
+	
 }

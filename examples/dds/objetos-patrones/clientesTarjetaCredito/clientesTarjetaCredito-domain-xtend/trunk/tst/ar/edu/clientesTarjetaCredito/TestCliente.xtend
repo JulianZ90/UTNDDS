@@ -15,7 +15,7 @@ class TestCliente {
 	def void init() {
 		franco = new ClientePosta
 		franco.saldo = 150
-		francoConNovia = new SafeShopDecorator(franco, 55)
+		francoConNovia = new ClienteSafeShopDecorator(franco, 55)
 		francoEnPromo = new ClientePromocionDecorator(franco)
 		francoConNoviaEnPromo = new ClientePromocionDecorator(francoConNovia)
 	}
@@ -23,7 +23,7 @@ class TestCliente {
 	@Test
 	def void francoComprandoSinControl() {
 		franco.comprar(60)
-		Assert::assertEquals(90, franco.saldo)
+		Assert::assertEquals(210, franco.saldo)
 	}
 
 	@Test(expected=typeof(BusinessException))
