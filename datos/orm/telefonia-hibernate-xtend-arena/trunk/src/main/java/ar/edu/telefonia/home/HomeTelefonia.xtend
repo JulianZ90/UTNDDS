@@ -69,16 +69,15 @@ class HomeTelefonia {
 		val session = sessionFactory.openSession
 		try {
 			// Restricción Dummy - todos los registros tienen id
-			var restriccionNombre = Restrictions.isNotNull("id")
+			val criteria = session.createCriteria(Abonado)
+				.add(Restrictions.isNotNull("id"))
 			if (busquedaAbonados.nombreDesde != null) {
-				restriccionNombre = Restrictions.ge("nombre", busquedaAbonados.nombreDesde)
+				criteria.add(Restrictions.ge("nombre", busquedaAbonados.nombreDesde))
 			} 
 			if (busquedaAbonados.nombreHasta != null) {
-				restriccionNombre = Restrictions.ge("nombre", busquedaAbonados.nombreHasta)
+				criteria.add(Restrictions.le("nombre", busquedaAbonados.nombreHasta))
 			} 
-			session.createCriteria(Abonado)
-				.add(restriccionNombre)
-				.list()
+			criteria.list()
 		} catch (HibernateException e) {
 			throw new RuntimeException(e)
 		} finally {
