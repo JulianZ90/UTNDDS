@@ -77,7 +77,12 @@ class HomeTelefonia {
 			if (busquedaAbonados.nombreHasta != null) {
 				criteria.add(Restrictions.le("nombre", busquedaAbonados.nombreHasta))
 			} 
-			criteria.list()
+			// Estrategia híbrida
+			// La búsqueda por nombre desde/hasta se hace contra la base
+			// El filtro de morosidad se hace posteriormente: si tenemos 5M de clientes no es una buena
+			// estrategia, hay que pensar en llevar la abstracción "moroso" a la consulta
+			// opciones: 1) incluir en la consulta un sum(saldo) de facturas, 2) armar un stored procedure
+			criteria.list().filter [ abonado | busquedaAbonados.cumple(abonado) ].toList()
 		} catch (HibernateException e) {
 			throw new RuntimeException(e)
 		} finally {
