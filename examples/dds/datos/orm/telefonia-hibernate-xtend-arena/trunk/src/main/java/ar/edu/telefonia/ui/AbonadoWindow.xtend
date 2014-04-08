@@ -11,6 +11,7 @@ import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import org.uqbar.arena.widgets.CheckBox
 
 class AbonadoWindow extends SimpleWindow<BuscarAbonadoAppModel> {
 	
@@ -33,6 +34,9 @@ class AbonadoWindow extends SimpleWindow<BuscarAbonadoAppModel> {
 
 		crearTextBox(searchFormPanel, "Nombre desde", "busquedaAbonados.nombreDesde")
 		crearTextBox(searchFormPanel, "Nombre hasta", "busquedaAbonados.nombreHasta")
+		new Label(searchFormPanel).text = "Sólo morosos"
+		val checkMorosos = new CheckBox(searchFormPanel)
+		checkMorosos.bindValueToProperty("busquedaAbonados.soloMorosos")
 	}
 
 	def crearTextBox(Panel searchFormPanel, String label, String binding) {
