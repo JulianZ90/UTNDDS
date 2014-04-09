@@ -18,7 +18,6 @@ class BuscarAbonadoAppModel {
 	}
 	
 	def void buscar() {
-		println("**************************** BUSCAR")
 		abonados = HomeTelefonia.instance.getAbonados(busquedaAbonados)
 	}
 	
