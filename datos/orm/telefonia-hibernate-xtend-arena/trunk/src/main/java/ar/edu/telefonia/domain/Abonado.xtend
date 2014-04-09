@@ -14,6 +14,7 @@ import javax.persistence.Id
 import javax.persistence.Inheritance
 import javax.persistence.InheritanceType
 import javax.persistence.OneToMany
+import javax.persistence.Transient
 import org.uqbar.commons.utils.Observable
 
 @Observable
@@ -104,6 +105,9 @@ abstract class Abonado {
 	def agregarFactura(Factura factura) {
 		facturas.add(factura)
 	}
+	
+	@Transient
+	abstract def String getDatosEspecificos()
 
 	/**
 	 *************************************************************************
@@ -126,6 +130,11 @@ class Residencial extends Abonado {
 
 	override def costo(Llamada llamada) {
 		2 * llamada.duracion
+	}
+	
+	@Transient
+	override getDatosEspecificos() {
+		"Residencial"
 	}
 
 }
@@ -168,6 +177,10 @@ class Rural extends Abonado {
 		3 * llamada.duracion.max(new Integer(5))
 	}
 
+	@Transient
+	override getDatosEspecificos() {
+		"Rural (" + cantidadHectareas + " has)"
+	}
 }
 
 @Entity
@@ -200,7 +213,11 @@ class Empresa extends Abonado {
 	 *        FIN EXTRAS MANUALES QUE NECESITA HIBERNATE         *
 	 *************************************************************
 	 */
-	
+
+	@Transient
+	override getDatosEspecificos() {
+		"Empresa (" + cuit + ")"
+	}	
 	new(String unCuit) {
 		cuit = unCuit
 	}
