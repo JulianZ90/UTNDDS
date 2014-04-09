@@ -18,6 +18,7 @@ class BuscarAbonadoAppModel {
 	}
 	
 	def void buscar() {
+		println("**************************** BUSCAR")
 		abonados = HomeTelefonia.instance.getAbonados(busquedaAbonados)
 	}
 	
@@ -26,4 +27,10 @@ class BuscarAbonadoAppModel {
 		abonados.clear()
 		abonadoSeleccionado = null
 	}
+	
+	def eliminarAbonado() {
+		HomeTelefonia.instance.eliminarAbonado(abonadoSeleccionado)
+		this.buscar
+	}
+	
 }

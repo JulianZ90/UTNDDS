@@ -103,5 +103,19 @@ class HomeTelefonia {
 			session.close
 		}
 	}
+	
+	def eliminarAbonado(Abonado abonado) {
+		val session = sessionFactory.openSession
+		try {
+			session.beginTransaction
+			session.delete(abonado)
+			session.getTransaction.commit
+		} catch (HibernateException e) {
+			session.getTransaction.rollback
+			throw new RuntimeException(e)
+		} finally {
+			session.close
+		}
+	}
 
 }
