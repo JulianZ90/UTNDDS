@@ -71,10 +71,10 @@ class HomeTelefonia {
 			// Restricción Dummy - todos los registros tienen id
 			val criteria = session.createCriteria(Abonado)
 				.add(Restrictions.isNotNull("id"))
-			if (busquedaAbonados.nombreDesde != null) {
+			if (busquedaAbonados.ingresoNombreDesde) {
 				criteria.add(Restrictions.ge("nombre", busquedaAbonados.nombreDesde))
 			} 
-			if (busquedaAbonados.nombreHasta != null) {
+			if (busquedaAbonados.ingresoNombreHasta) {
 				criteria.add(Restrictions.le("nombre", busquedaAbonados.nombreHasta))
 			} 
 			// Estrategia híbrida

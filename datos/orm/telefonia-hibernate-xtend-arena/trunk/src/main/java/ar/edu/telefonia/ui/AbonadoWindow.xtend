@@ -144,7 +144,7 @@ class AbonadoWindow extends SimpleWindow<BuscarAbonadoAppModel> {
 	 * (lo importante es el () => EditarAbonadowWindow porque castea los 3 bloques a algo que devuelve 
 	 * una sublcase de EditarAbonadoWindow 
 	 */
-	 	def editarAbonado() {
+	 def editarAbonado() {
 		val bloqueQueConstruyeVentana = mapaVentanas.get(modelObject.abonadoSeleccionado.class)
 		this.openDialog(bloqueQueConstruyeVentana.apply)
 	}

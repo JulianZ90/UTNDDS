@@ -14,8 +14,8 @@ class BusquedaAbonados {
 	}
 	
 	def cumple(Abonado abonado) {
-		(nombreDesde == null || abonado.nombre >= nombreDesde) && 
-		(nombreHasta == null || abonado.nombre <= nombreHasta) &&
+		(!ingresoNombreDesde || abonado.nombre >= nombreDesde) && 
+		(!ingresoNombreHasta || abonado.nombre <= nombreHasta) &&
 		(!soloMorosos || abonado.esMoroso)
 	}
 	
@@ -23,6 +23,14 @@ class BusquedaAbonados {
 		nombreDesde = ""
 		nombreHasta = ""
 		soloMorosos = false
+	}
+
+	def ingresoNombreDesde() {
+		nombreDesde != null && !nombreDesde.equals("")
+	}
+	
+	def ingresoNombreHasta() {
+		nombreHasta != null && !nombreHasta.equals("")
 	}
 	
 }
