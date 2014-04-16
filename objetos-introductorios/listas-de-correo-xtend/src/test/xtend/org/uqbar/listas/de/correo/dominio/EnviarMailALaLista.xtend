@@ -1,10 +1,8 @@
 package org.uqbar.listas.de.correo.dominio
 
-import org.junit.Test
-import org.uqbar.listas.de.correo.dominio.stateless.tipoEnvio.TipoDeEnvioLibre
-import org.uqbar.listas.de.correo.dominio.stateless.tipoSuscripcion.SuscripcionAbiertaStateLess
 import junit.framework.Assert
-import org.uqbar.listas.de.correo.dominio.stateless.tipoEnvio.TipoDeEnvioRestringido
+import org.junit.Test
+import org.uqbar.listas.de.correo.dominio.factory.ListaDeCorreoFactory
 
 class EnviarMailALaLista {
 	@Test
@@ -45,11 +43,11 @@ class EnviarMailALaLista {
 	}
 	
 	def crearListaRestringida() {
-		new ListaDeCorreo(new SuscripcionAbiertaStateLess, new TipoDeEnvioRestringido)
+		ListaDeCorreoFactory.crearListaAbiertaRestringida
 	}
 	
 	def crearListaLibre() {
-		new ListaDeCorreo(new SuscripcionAbiertaStateLess, new TipoDeEnvioLibre)
+		ListaDeCorreoFactory.crearListaAbiertaLibre
 	}
 	
 	def crearMail() {

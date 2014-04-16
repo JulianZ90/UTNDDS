@@ -1,8 +1,7 @@
 package org.uqbar.listas.de.correo.dominio
 
 import org.junit.Test
-import org.uqbar.listas.de.correo.dominio.stateless.tipoSuscripcion.SuscripcionAbiertaStateLess
-import org.uqbar.listas.de.correo.dominio.stateless.tipoSuscripcion.SuscripcionCerradaStateLess
+import org.uqbar.listas.de.correo.dominio.factory.ListaDeCorreoFactory
 
 import static junit.framework.Assert.*
 
@@ -24,7 +23,7 @@ class ListaDeCorreoTest {
 		
 		lista.suscribir(suscripto)
 		
-		assertTrue("Lo suscribimos pero no lo aprobamos deberia estar pendiente",lista.estaPendiente(suscripto))
+		assertTrue("Lo suscribimos pero no lo aprobamos deberia estar pendiente", lista.tipoDeSuscripcion.estaPendiente(suscripto))
 	}
 	
 	
@@ -33,11 +32,11 @@ class ListaDeCorreoTest {
 		var lista = this.crearListaCerrada
 		var suscripto = this.crearUsuario
 		lista.suscribir(suscripto)
-		lista.aprobar(suscripto)
+		lista.tipoDeSuscripcion.aprobar(suscripto)
 		
 		lista.suscribir(suscripto)
 		
-		assertFalse( "Ya está suscripto, no deberia estar pendiente", lista.estaPendiente(suscripto))
+		assertFalse( "Ya está suscripto, no deberia estar pendiente", lista.tipoDeSuscripcion.estaPendiente(suscripto))
 	}
 	
 	
@@ -58,10 +57,10 @@ class ListaDeCorreoTest {
 
 
 	def ListaDeCorreo crearListaAbierta(){
-		new ListaDeCorreo(new SuscripcionAbiertaStateLess, null)
+		ListaDeCorreoFactory.crearListaAbierta
 	}
 	def ListaDeCorreo crearListaCerrada(){
-		new ListaDeCorreo(new SuscripcionCerradaStateLess, null)
+		ListaDeCorreoFactory.crearListaCerrada
 	}
 	
 	def Usuario crearUsuario(){
