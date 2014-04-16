@@ -3,8 +3,23 @@ package org.uqbar.listas.de.correo.dominio
 /**
  * Estrategy para determinar la manera en la que un usuario ingresa a la lista
  */
-interface TipoDeSuscripcion {
+abstract class TipoDeSuscripcion {
+	var ListaDeCorreo lista
 	
-	def void suscribir(Usuario usuario, ListaDeCorreo lista)
+	new (ListaDeCorreo lista){
+		this.lista = lista
+	}
+	
+	def getLista(){
+		lista
+	}
+	
+	def abstract void suscribir(Usuario usuario)
+	def Boolean estaPendiente(Usuario usuario){
+		false
+	}
+	def void aprobar(Usuario usuario){
+		
+	}
 	
 }
