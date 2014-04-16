@@ -12,12 +12,19 @@ class ListaDeCorreo {
 	
 	Collection<Usuario> suscriptos
 	TipoDeSuscripcion tipoDeSuscripcion
+	TipoDeEnvio tipoDeEnvio
+	
+	/**
+	 * Esto se usa solo si la suscripcion es cerrada 
+	 * TODO: Preguntar ¿está bien que quede asi? ¿Estamos seguros de elegir stateless despues de todo?
+	 */
 	Collection<Usuario> pendientes
 	
-	new(TipoDeSuscripcion tipo){
+	new(TipoDeSuscripcion tipo, TipoDeEnvio envio){
 		suscriptos = new ArrayList
 		pendientes = new ArrayList
 		tipoDeSuscripcion = tipo
+		tipoDeEnvio = envio
 	}
 	
 	def suscribir(Usuario usuario){
@@ -32,6 +39,9 @@ class ListaDeCorreo {
 	def estaSuscripto(Usuario usuario) {
 		suscriptos.contains(usuario)
 	}
+
+
+
 
 	def dejarPendienteDeSuscripcion(Usuario usuario) {
 		pendientes.add(usuario)
@@ -48,6 +58,21 @@ class ListaDeCorreo {
 		}else{
 			//QUE HACEMOS????! 
 		}
+	}
+	
+	
+	def enviarMail(Mail mail){
+		this.tipoDeEnvio.enviarCorreo(mail, this)
+	}
+	
+	def void recibirMail(Mail mail) {
+		this.suscriptos.forEach[suscripto | this.enviarMail(mail, suscripto) ]
+	}
+	
+	
+	def enviarMail(Mail mail, Usuario suscripto){
+		//FIXME: Aca deberiamos de enviar el mail realmente y no como pasa ahora
+		suscripto.recibirMail(mail)
 	}
 
 }
