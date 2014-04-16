@@ -1,16 +1,16 @@
 package org.uqbar.listas.de.correo.dominio
 
 import org.junit.Test
-
-import static junit.framework.Assert.*
 import org.uqbar.listas.de.correo.dominio.stateless.tipoSuscripcion.SuscripcionAbiertaStateLess
 import org.uqbar.listas.de.correo.dominio.stateless.tipoSuscripcion.SuscripcionCerradaStateLess
+
+import static junit.framework.Assert.*
 
 class ListaDeCorreoTest {
 	@Test
 	def testSuscribirUnUsuarioAUnaListaAbiertaLoAdmite() {
 		var lista = crearListaAbierta()
-		var suscripto = new Usuario
+		var suscripto = this.crearUsuario
 		
 		lista.suscribir(suscripto)
 		
@@ -20,7 +20,7 @@ class ListaDeCorreoTest {
 	@Test
 	def testSuscribirUnUsuarioAUnaCerradaLoDejaComoPendiente() {
 		var lista = crearListaCerrada()
-		var suscripto = new Usuario
+		var suscripto = this.crearUsuario
 		
 		lista.suscribir(suscripto)
 		
@@ -31,7 +31,7 @@ class ListaDeCorreoTest {
 	@Test
 	def testSuscribirUnUsuarioYaSuscriptoEnUnaListaCerradaNoLoDejaComoPendiente() {
 		var lista = this.crearListaCerrada
-		var suscripto = new Usuario
+		var suscripto = this.crearUsuario
 		lista.suscribir(suscripto)
 		lista.aprobar(suscripto)
 		
@@ -58,10 +58,14 @@ class ListaDeCorreoTest {
 
 
 	def ListaDeCorreo crearListaAbierta(){
-		new ListaDeCorreo(new SuscripcionAbiertaStateLess)
+		new ListaDeCorreo(new SuscripcionAbiertaStateLess, null)
 	}
 	def ListaDeCorreo crearListaCerrada(){
-		new ListaDeCorreo(new SuscripcionCerradaStateLess)
+		new ListaDeCorreo(new SuscripcionCerradaStateLess, null)
+	}
+	
+	def Usuario crearUsuario(){
+		new Usuario("nnn@nn.com")
 	}
 	
 
