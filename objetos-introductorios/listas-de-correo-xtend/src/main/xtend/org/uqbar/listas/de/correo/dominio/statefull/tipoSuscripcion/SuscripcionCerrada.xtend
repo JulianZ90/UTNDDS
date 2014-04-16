@@ -1,0 +1,36 @@
+package org.uqbar.listas.de.correo.dominio.statefull.tipoSuscripcion
+
+import java.util.ArrayList
+import java.util.Collection
+import org.uqbar.listas.de.correo.dominio.TipoDeSuscripcion
+import org.uqbar.listas.de.correo.dominio.Usuario
+import org.uqbar.listas.de.correo.dominio.ListaDeCorreo
+
+class SuscripcionCerrada extends TipoDeSuscripcion{
+	
+	Collection<Usuario> pendientes
+	
+	new(ListaDeCorreo lista){
+		super(lista)
+		pendientes = new ArrayList
+	}
+	
+	override suscribir(Usuario usuario) {
+		pendientes.add(usuario)
+	}
+	
+	override estaPendiente(Usuario usuario) {
+		pendientes.contains(usuario)
+	}
+	
+	override aprobar(Usuario usuario) {
+		if(this.estaPendiente(usuario)){
+			pendientes.remove(usuario)
+			lista.agregarUsuario(usuario)
+		}else{
+			//FIXME! QUE HACEMOS????! Quetemos aprobar un usuario que no esta pendiente!
+		}
+	}
+	
+	
+}
