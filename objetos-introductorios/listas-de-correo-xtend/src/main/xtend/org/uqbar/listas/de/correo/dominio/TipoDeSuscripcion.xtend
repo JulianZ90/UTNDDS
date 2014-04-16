@@ -1,9 +1,10 @@
 package org.uqbar.listas.de.correo.dominio
 
-import org.uqbar.listas.de.correo.dominio.stateless.ListaDeCorreoStateless
-
+/**
+ * Estrategy para determinar la manera en la que un usuario ingresa a la lista
+ */
 interface TipoDeSuscripcion {
 	
-	def void suscribir(Usuario usuario, ListaDeCorreoStateless lista)
+	def void suscribir(Usuario usuario, ListaDeCorreo lista)
 	
 }
