@@ -11,6 +11,7 @@ import org.uqbar.listas.de.correo.dominio.Usuario
 class ListaDeCorreo {
 	
 	Collection<Usuario> suscriptos
+	@Property
 	TipoDeSuscripcion tipoDeSuscripcion
 	TipoDeEnvio tipoDeEnvio
 	
@@ -20,17 +21,23 @@ class ListaDeCorreo {
 	 */
 	Collection<Usuario> pendientes
 	
-	new(TipoDeSuscripcion tipo, TipoDeEnvio envio){
+	new(TipoDeEnvio envio){
 		suscriptos = new ArrayList
 		pendientes = new ArrayList
-		tipoDeSuscripcion = tipo
 		tipoDeEnvio = envio
 	}
 	
+	/**
+	 * suscribe a un usuario a traves del proceso de suscripcion que corresponda
+	 */
 	def suscribir(Usuario usuario){
-		tipoDeSuscripcion.suscribir(usuario,this)
+		tipoDeSuscripcion.suscribir(usuario)
 	}
 
+	/**
+	 * agrega el usuario a su lista de suscriptos
+	 * A menos que seas el TipoDeSuscripcion no queres llamar a este mensaje
+	 */
 	def agregarUsuario(Usuario usuario) {
 		suscriptos.add(usuario)
 	}
@@ -40,27 +47,6 @@ class ListaDeCorreo {
 		suscriptos.contains(usuario)
 	}
 
-
-
-
-	def dejarPendienteDeSuscripcion(Usuario usuario) {
-		pendientes.add(usuario)
-	}
-	
-	def estaPendiente(Usuario usuario) {
-		pendientes.contains(usuario)
-	}
-	
-	def aprobar(Usuario usuario) {
-		if(this.estaPendiente(usuario)){
-			pendientes.remove(usuario)
-			suscriptos.add(usuario)
-		}else{
-			//QUE HACEMOS????! 
-		}
-	}
-	
-	
 	def enviarMail(Mail mail){
 		this.tipoDeEnvio.enviarCorreo(mail, this)
 	}
@@ -74,5 +60,6 @@ class ListaDeCorreo {
 		//FIXME: Aca deberiamos de enviar el mail realmente y no como pasa ahora
 		suscripto.recibirMail(mail)
 	}
+	
 
 }
