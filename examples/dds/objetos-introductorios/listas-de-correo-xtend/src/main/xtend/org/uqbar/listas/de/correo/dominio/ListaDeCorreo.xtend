@@ -1,11 +1,14 @@
-package org.uqbar.listas.de.correo.dominio.stateless
+package org.uqbar.listas.de.correo.dominio
 
 import java.util.ArrayList
 import java.util.Collection
 import org.uqbar.listas.de.correo.dominio.TipoDeSuscripcion
 import org.uqbar.listas.de.correo.dominio.Usuario
 
-class ListaDeCorreoStateless {
+/**
+ * Una lista de correo representa a un conjunto de usuarios que reciben los mails que se envian a la lista
+ */
+class ListaDeCorreo {
 	
 	Collection<Usuario> suscriptos
 	TipoDeSuscripcion tipoDeSuscripcion
