@@ -15,15 +15,8 @@ class ListaDeCorreo {
 	TipoDeSuscripcion tipoDeSuscripcion
 	TipoDeEnvio tipoDeEnvio
 	
-	/**
-	 * Esto se usa solo si la suscripcion es cerrada 
-	 * TODO: Preguntar ¿está bien que quede asi? ¿Estamos seguros de elegir stateless despues de todo?
-	 */
-	Collection<Usuario> pendientes
-	
 	new(TipoDeEnvio envio){
 		suscriptos = new ArrayList
-		pendientes = new ArrayList
 		tipoDeEnvio = envio
 	}
 	

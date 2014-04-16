@@ -28,7 +28,10 @@ class SuscripcionCerrada extends TipoDeSuscripcion{
 			pendientes.remove(usuario)
 			lista.agregarUsuario(usuario)
 		}else{
-			//FIXME! QUE HACEMOS????! Quetemos aprobar un usuario que no esta pendiente!
+			/**
+			 * TODO
+			 *  QUE HACEMOS????! Queremos aprobar un usuario que no esta pendiente!
+			 */
 		}
 	}
 	

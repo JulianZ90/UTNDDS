@@ -8,7 +8,9 @@ class TipoDeEnvioRestringido implements TipoDeEnvio{
 	
 	override enviarCorreo(Mail mensaje, ListaDeCorreo destino) {
 		if( !destino.estaSuscripto(mensaje.remitente)){
-			//FIXME: No esta suscripto no tenemos que dejarlo!!!!!!!!
+			/**
+			 * TODO: No esta suscripto no tenemos que dejarlo!!!!!!!! 
+			 */
 			return ;
 		}
 		
