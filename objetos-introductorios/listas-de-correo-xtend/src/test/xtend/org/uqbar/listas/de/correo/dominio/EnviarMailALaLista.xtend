@@ -5,6 +5,7 @@ import org.junit.Test
 import org.uqbar.listas.de.correo.dominio.factory.ListaDeCorreoFactory
 
 class EnviarMailALaLista {
+	
 	@Test
 	def testEnviarMailAUnaListaLibreDeUnNoInscriptoLlegaALosInscriptos(){
 		var inscripto = this.crearUsuario

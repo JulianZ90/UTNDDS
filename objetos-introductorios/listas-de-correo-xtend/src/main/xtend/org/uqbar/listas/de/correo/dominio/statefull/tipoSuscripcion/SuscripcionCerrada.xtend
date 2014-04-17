@@ -2,9 +2,9 @@ package org.uqbar.listas.de.correo.dominio.statefull.tipoSuscripcion
 
 import java.util.ArrayList
 import java.util.Collection
+import org.uqbar.listas.de.correo.dominio.ListaDeCorreo
 import org.uqbar.listas.de.correo.dominio.TipoDeSuscripcion
 import org.uqbar.listas.de.correo.dominio.Usuario
-import org.uqbar.listas.de.correo.dominio.ListaDeCorreo
 
 class SuscripcionCerrada extends TipoDeSuscripcion{
 	
@@ -30,7 +30,8 @@ class SuscripcionCerrada extends TipoDeSuscripcion{
 		}else{
 			/**
 			 * TODO
-			 *  QUE HACEMOS????! Queremos aprobar un usuario que no esta pendiente!
+			 *  QUE HACEMOS????! 
+			 * Queremos aprobar un usuario que no esta pendiente!
 			 */
 		}
 	}

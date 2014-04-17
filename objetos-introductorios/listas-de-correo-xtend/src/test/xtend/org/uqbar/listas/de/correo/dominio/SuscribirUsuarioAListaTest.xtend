@@ -4,6 +4,7 @@ import org.junit.Test
 import org.uqbar.listas.de.correo.dominio.factory.ListaDeCorreoFactory
 
 import static junit.framework.Assert.*
+import junit.framework.Assert
 
 class ListaDeCorreoTest {
 	@Test
@@ -42,12 +43,29 @@ class ListaDeCorreoTest {
 	
 	@Test
 	def testSuscribirUnUsuarioYaSuscriptoEnUnaListaAbiertaLoTieneUnaVez() {
-		fail("not implemented")
+		//Escenario
+		var listaAbierta = this.crearListaAbierta
+		var usuario = this.crearUsuario
+		listaAbierta.suscribir(usuario)
+		
+		//Accion
+		listaAbierta.suscribir(usuario)
+		
+		Assert.assertTrue(listaAbierta.estaSuscripto(usuario))
+		Assert.assertEquals(1, listaAbierta.suscriptos.size)
 	}
 	
 	@Test
 	def testAprobarUnaSuscripcionPendienteEnUnaListaCerradaLoPasaASuscriptos() {
-		fail("not implemented")
+		var listaCerrada = this.crearListaCerrada
+		var usuario = this.crearUsuario
+		listaCerrada.suscribir(usuario)
+		
+		listaCerrada.tipoDeSuscripcion.aprobar(usuario)
+		
+		assertTrue(listaCerrada.estaSuscripto(usuario))
+		assertFalse(listaCerrada.tipoDeSuscripcion.estaPendiente(usuario))
+		
 	}
 	
 	@Test

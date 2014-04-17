@@ -1,23 +1,26 @@
 package org.uqbar.listas.de.correo.dominio
 
-import java.util.ArrayList
-import java.util.Collection
-import org.uqbar.listas.de.correo.dominio.TipoDeSuscripcion
-import org.uqbar.listas.de.correo.dominio.Usuario
+import java.util.HashSet
+import java.util.Set
+import org.uqbar.listas.de.correo.adapter.envioDeMails.CarteroDistribuidor
 
 /**
  * Una lista de correo representa a un conjunto de usuarios que reciben los mails que se envian a la lista
  */
 class ListaDeCorreo {
 	
-	Collection<Usuario> suscriptos
+	//Es un set porque NO QUEREMOS suscriptos repetidos
+	Set<Usuario> suscriptos
 	@Property
 	TipoDeSuscripcion tipoDeSuscripcion
 	TipoDeEnvio tipoDeEnvio
 	
+	Cartero cartero
+	
 	new(TipoDeEnvio envio){
-		suscriptos = new ArrayList
+		suscriptos = new HashSet
 		tipoDeEnvio = envio
+		cartero = new CarteroDistribuidor
 	}
 	
 	/**
@@ -50,9 +53,11 @@ class ListaDeCorreo {
 	
 	
 	def enviarMail(Mail mail, Usuario suscripto){
-		//FIXME: Aca deberiamos de enviar el mail realmente y no como pasa ahora
-		suscripto.recibirMail(mail)
+		cartero.enviarMail(mail, suscripto)		
 	}
 	
+	def getSuscriptos(){
+		suscriptos
+	}
 
 }
