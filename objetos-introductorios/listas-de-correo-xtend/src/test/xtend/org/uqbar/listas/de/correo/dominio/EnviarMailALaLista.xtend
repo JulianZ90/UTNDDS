@@ -1,6 +1,6 @@
 package org.uqbar.listas.de.correo.dominio
 
-import junit.framework.Assert
+import static junit.framework.Assert.*
 import org.junit.Test
 import org.uqbar.listas.de.correo.dominio.factory.ListaDeCorreoFactory
 
@@ -15,7 +15,7 @@ class EnviarMailALaLista {
 		
 		lista.enviarMail(mailEnviado)
 		
-		Assert.assertTrue(inscripto.recibioMail(mailEnviado))
+		assertTrue(inscripto.recibioMail(mailEnviado))
 	}
 	
 	@Test
@@ -27,7 +27,7 @@ class EnviarMailALaLista {
 		
 		lista.enviarMail(mailEnviado)
 		
-		Assert.assertFalse(inscripto.recibioMail(mailEnviado))
+		assertFalse(inscripto.recibioMail(mailEnviado))
 	}
 	
 	@Test
@@ -40,7 +40,7 @@ class EnviarMailALaLista {
 		
 		lista.enviarMail(mailEnviado)
 		
-		Assert.assertTrue(inscripto.recibioMail(mailEnviado))
+		assertTrue(inscripto.recibioMail(mailEnviado))
 	}
 	
 	def crearListaRestringida() {

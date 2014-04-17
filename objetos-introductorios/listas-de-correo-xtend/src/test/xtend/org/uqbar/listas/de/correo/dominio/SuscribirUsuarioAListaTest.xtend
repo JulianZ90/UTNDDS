@@ -4,7 +4,6 @@ import org.junit.Test
 import org.uqbar.listas.de.correo.dominio.factory.ListaDeCorreoFactory
 
 import static junit.framework.Assert.*
-import junit.framework.Assert
 
 class ListaDeCorreoTest {
 	@Test
@@ -51,8 +50,8 @@ class ListaDeCorreoTest {
 		//Accion
 		listaAbierta.suscribir(usuario)
 		
-		Assert.assertTrue(listaAbierta.estaSuscripto(usuario))
-		Assert.assertEquals(1, listaAbierta.suscriptos.size)
+		assertTrue(listaAbierta.estaSuscripto(usuario))
+		assertEquals(1, listaAbierta.suscriptos.size)
 	}
 	
 	@Test
