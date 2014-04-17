@@ -4,6 +4,8 @@ import org.junit.Assert
 import org.junit.Test
 
 class UsuarioTest {
+	
+	
 	@Test
 	def testCrearUnUsuarioConMailLoTieneComoSusMails(){
 		var direccionDeMail = "aaa@a.com"

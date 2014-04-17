@@ -18,13 +18,11 @@ class Prueba {
 	def static void main(String[] args) {
 		var usuario = new Usuario("a@a.a")
 		
-		var listaAbierta = new ListaDeCorreo(new TipoDeEnvioLibre)
-		listaAbierta.setTipoDeSuscripcion(new SuscripcionAbierta(listaAbierta))
+		var listaAbierta = Prueba.crearListaAbierta
 		listaAbierta.suscribir(usuario) 
 		println(listaAbierta.estaSuscripto(usuario))
 		
-		var listaCerrada = new ListaDeCorreo(new TipoDeEnvioLibre)
-		listaCerrada.setTipoDeSuscripcion(new SuscripcionCerrada(listaCerrada))
+		var listaCerrada = Prueba.crearListaCerrada
 		listaCerrada.suscribir(usuario)
 		println(listaCerrada.estaSuscripto(usuario))
 
@@ -32,6 +30,19 @@ class Prueba {
 		println(listaCerrada.estaSuscripto(usuario))
 		
 		
+	}
+	
+	def static crearListaCerrada() {
+		var listaCerrada = new ListaDeCorreo(new TipoDeEnvioLibre)
+		listaCerrada.setTipoDeSuscripcion(new SuscripcionCerrada(listaCerrada))
+		listaCerrada
+		
+	}
+	
+	def static crearListaAbierta() {
+		var lista = new ListaDeCorreo(new TipoDeEnvioLibre)
+		lista.setTipoDeSuscripcion(new SuscripcionAbierta(lista))
+		lista
 	}
 	
 	

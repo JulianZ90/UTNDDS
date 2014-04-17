@@ -14,12 +14,13 @@ abstract class TipoDeSuscripcion {
 		lista
 	}
 	
-	def abstract void suscribir(Usuario usuario)
 	def Boolean estaPendiente(Usuario usuario){
 		false
 	}
+	
 	def void aprobar(Usuario usuario){
 		
 	}
 	
+	def abstract void suscribir(Usuario usuario)
 }

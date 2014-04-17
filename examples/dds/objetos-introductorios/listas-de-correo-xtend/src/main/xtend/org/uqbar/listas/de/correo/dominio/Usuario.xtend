@@ -1,12 +1,12 @@
 package org.uqbar.listas.de.correo.dominio
 
-import java.util.Collection
 import java.util.ArrayList
+import java.util.Collection
 
 /**
  * Un usuario es un suscriptor a una lista
  */
-class Usuario {
+class Usuario{
 	@Property
 	String emailParaLaLista
 	
