@@ -19,12 +19,12 @@ class TestSorgo {
 	
 	@Test
 	def testCostoSorgoParcela40() {
-		Assert::assertEquals(120, parcela40.costoTotal, 0.1)
+		Assert.assertEquals(120, parcela40.costoTotal, 0.1)
 	}
 
 	@Test
 	def testCostoSorgoParcela200() {
-		Assert::assertEquals(400, parcela200.costoTotal, 0.1)
+		Assert.assertEquals(400, parcela200.costoTotal, 0.1)
 	}
 	
 	// PUNTO 2
