@@ -1,6 +1,6 @@
 function factorial(n,anteExito,anteFalla) {
  if (n < 0)
-   anteFalla("n < 0");
+   anteFalla("n es " + n + " , n debe ser > 0");
  else if (n == 0)
    anteExito(1);
  else
