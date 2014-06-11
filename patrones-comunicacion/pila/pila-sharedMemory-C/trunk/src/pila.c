@@ -14,13 +14,17 @@ void init() {
 	current = 0;
 }
 
-void push(int i) {
+int top(void) {
+	return stack[current];
+}
+
+void push(int value) {
 	if (current == SIZE) {
 		printf("Stack Overflow.\n");
 		exit(1);
 	}
 	current++;
-	stack[current] = i;
+	stack[current] = value;
 }
 
 int pop(void) {
@@ -31,10 +35,6 @@ int pop(void) {
 	int elementPopped = top();
 	current--;
 	return elementPopped;
-}
-
-int top(void) {
-	return stack[current];
 }
 
 /** Tenemos un main, no varios tests porque al tener
