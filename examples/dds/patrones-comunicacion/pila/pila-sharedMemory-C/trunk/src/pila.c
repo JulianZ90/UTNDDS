@@ -14,21 +14,22 @@ void init() {
 }
 
 void push(int i) {
-	current++;
-	if (current == (SIZE)) {
+	if (current == SIZE) {
 		printf("Stack Overflow.\n");
 		exit(1);
 	}
+	current++;
 	stack[current] = i;
 }
 
 int pop(void) {
 	if (current == 0) {
 		printf("Stack Underflow.\n");
-		exit(1);
+		exit(2);
 	}
+	int elementPopped = top();
 	current--;
-	return stack[current + 1];
+	return elementPopped;
 }
 
 int top(void) {
