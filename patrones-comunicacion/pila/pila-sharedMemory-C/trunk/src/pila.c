@@ -7,10 +7,11 @@
 #include <stdio.h>
 #define SIZE 50
 
+/** Estructura de datos global **/
 int current, stack[SIZE];
 
 void init() {
-	current = 0; /* initialize current */
+	current = 0;
 }
 
 void push(int i) {
@@ -36,6 +37,15 @@ int top(void) {
 	return stack[current];
 }
 
+/** Tenemos un main, no varios tests porque al tener
+ * mezcladas funciones que manejan una estructura global
+ * es complicado mantener un estado local para cada test
+ * (se puede, pero debemos asegurar que no corran en
+ * paralelo y que al final de cada test se eliminen
+ * los efectos sobre esa estructura global; además
+ * no podemos manejar un "fixture" o juego de datos,
+ * sólo podemos tener una estructura como casuística)
+ */
 int main(void) {
 	init();
 
