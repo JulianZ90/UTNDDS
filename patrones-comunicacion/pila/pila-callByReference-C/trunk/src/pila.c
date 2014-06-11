@@ -6,11 +6,7 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-#define SIZE 50
-
-typedef struct stack {
-	int current, stack[SIZE];
-} stack;
+#include "pila.h"
 
 stack* empty() {
 	stack* pila = (stack*) malloc(sizeof(stack));
@@ -45,13 +41,6 @@ int pop(stack* pila) {
 	return elementPopped;
 }
 
-int main(void) {
-	stack* pila = empty();
-	push(pila, 10);
-	push(pila, 49);
-	pop(pila);
-	printf("El tope es %d\n", pop(pila));
-	printf("end\n");
-	return 0;
+int size(stack* pila) {
+	return pila->current;
 }
-
