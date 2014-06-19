@@ -27,14 +27,12 @@ void push(int value) {
 	stack[current] = value;
 }
 
-int pop(void) {
+void pop(void) {
 	if (current == 0) {
 		printf("Stack Underflow.\n");
 		exit(2);
 	}
-	int elementPopped = top();
 	current--;
-	return elementPopped;
 }
 
 /** Tenemos un main, no varios tests porque al tener
@@ -48,11 +46,9 @@ int pop(void) {
  */
 int main(void) {
 	init();
-
 	push(10);
 	push(49);
 	pop();
 	printf("value on top is %d\n", top());
 	return 0;
 }
-
