@@ -23,22 +23,20 @@ void push(stack* pila, int value) {
 	pila->stack[pila->current] = value;
 }
 
+void pop(stack* pila) {
+	if (pila->current == 0) {
+		printf("Stack Underflow.\n");
+		exit(2);
+	}
+	pila->current--;
+}
+
 int top(stack* pila) {
 	if (pila->current == 0) {
 		printf("Empty stack.\n");
 		exit(3);
 	}
 	return pila->stack[pila->current];
-}
-
-int pop(stack* pila) {
-	if (pila->current == 0) {
-		printf("Stack Underflow.\n");
-		exit(2);
-	}
-	int elementPopped = top(pila);
-	pila->current--;
-	return elementPopped;
 }
 
 int size(stack* pila) {

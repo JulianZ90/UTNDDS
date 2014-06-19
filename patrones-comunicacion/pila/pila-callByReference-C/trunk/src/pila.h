@@ -16,8 +16,8 @@ typedef struct stack {
 
 stack* empty();
 void push(stack* pila, int value);
+void pop(stack* pila);
 int top(stack* pila);
-int pop(stack* pila);
 int size(stack* pila);
 
 #endif /* PILA_H_ */
