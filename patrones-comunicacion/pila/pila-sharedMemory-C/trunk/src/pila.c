@@ -5,7 +5,8 @@
  *      Author: Fernando
  */
 #include <stdio.h>
-#define SIZE 50
+#define SIZE      50
+#define MAX_SIZE  SIZE - 1
 
 /** Estructura de datos global **/
 int current, stack[SIZE];
@@ -19,7 +20,7 @@ int top(void) {
 }
 
 void push(int value) {
-	if (current == SIZE) {
+	if (current == MAX_SIZE) {
 		printf("Stack Overflow.\n");
 		exit(1);
 	}
