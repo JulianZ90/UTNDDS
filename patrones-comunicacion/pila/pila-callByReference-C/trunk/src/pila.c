@@ -10,12 +10,16 @@
 
 stack* empty() {
 	stack* pila = (stack*) malloc(sizeof(stack));
-	pila->current = 0;
+	pila->current = EMPTY_STACK;
 	return pila;
 }
 
+void free_stack(stack* pila) {
+	free(pila);
+}
+
 void push(stack* pila, int value) {
-	if (pila->current == SIZE) {
+	if (pila->current == MAX_SIZE) {
 		printf("Stack Overflow.\n");
 		exit(1);
 	}
@@ -24,7 +28,7 @@ void push(stack* pila, int value) {
 }
 
 void pop(stack* pila) {
-	if (pila->current == 0) {
+	if (pila->current == EMPTY_STACK) {
 		printf("Stack Underflow.\n");
 		exit(2);
 	}
@@ -32,7 +36,7 @@ void pop(stack* pila) {
 }
 
 int top(stack* pila) {
-	if (pila->current == 0) {
+	if (pila->current == EMPTY_STACK) {
 		printf("Empty stack.\n");
 		exit(3);
 	}

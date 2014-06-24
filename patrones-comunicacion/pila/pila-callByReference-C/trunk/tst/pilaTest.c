@@ -18,7 +18,7 @@
  *********************************************************************/
 void TestPilaVaciaNoTieneElementos(CuTest* tc) {
 	stack* pila = empty();
-	CuAssert(tc, "elemento de una lista vacía", size(pila) == 0);
+	CuAssert(tc, "elemento de una lista vacía", size(pila) == EMPTY_STACK);
 }
 
 void TestPilaApiloYDesapilo(CuTest* tc) {
