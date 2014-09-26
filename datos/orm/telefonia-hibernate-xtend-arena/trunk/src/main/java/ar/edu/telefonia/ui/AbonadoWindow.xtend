@@ -79,12 +79,13 @@ class AbonadoWindow extends SimpleWindow<BuscarAbonadoAppModel> {
 	}
 
 	def protected createResultsGrid(Panel mainPanel) {
-		var table = new Table<Abonado>(mainPanel, Abonado)
-		table.heigth = 200
-		table.width = 450
-		table.bindItemsToProperty("abonados")
-		table.bindValueToProperty("abonadoSeleccionado")
-		this.describeResultsGrid(table)
+		new Table<Abonado>(mainPanel, Abonado) => [
+			height = 200
+			width = 450
+			bindItemsToProperty("abonados")
+			bindValueToProperty("abonadoSeleccionado")
+			this.describeResultsGrid(it)
+		]
 	}
 
 	/**
