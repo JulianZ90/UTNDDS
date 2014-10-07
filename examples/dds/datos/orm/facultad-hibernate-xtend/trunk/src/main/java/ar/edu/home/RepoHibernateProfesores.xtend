@@ -6,7 +6,7 @@ import java.util.List
 import org.hibernate.HibernateException
 import org.hibernate.criterion.Restrictions
 
-class HomeHibernateProfesores extends AbstractHomeHibernate<Profesor> {
+class RepoHibernateProfesores extends AbstractRepoHibernate<Profesor> {
 
 	new() {
 	}

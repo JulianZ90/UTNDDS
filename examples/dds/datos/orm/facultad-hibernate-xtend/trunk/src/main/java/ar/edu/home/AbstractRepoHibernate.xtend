@@ -8,7 +8,7 @@ import org.hibernate.Session
 import org.hibernate.SessionFactory
 import org.hibernate.cfg.AnnotationConfiguration
 
-abstract class AbstractHomeHibernate<T> {
+abstract class AbstractRepoHibernate<T> {
 	
 	private static final SessionFactory sessionFactory = 
 		new AnnotationConfiguration()
