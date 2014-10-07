@@ -8,7 +8,7 @@ import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 
-class TestHomeHibernateProfesores {
+class TestProfesores {
 	
 	Profesor spigariol
 	Profesor passerini
@@ -16,8 +16,8 @@ class TestHomeHibernateProfesores {
 	Materia paradigmas
 	Materia algoritmos
 	Materia disenio
-	HomeHibernateMaterias homeMaterias
-	HomeHibernateProfesores homeProfes
+	RepoHibernateMaterias homeMaterias
+	RepoHibernateProfesores homeProfes
 	
 	@Before
 	def void init() {
@@ -25,7 +25,7 @@ class TestHomeHibernateProfesores {
 		paradigmas = new Materia("Paradigmas de Programacion", 2)
 		disenio = new Materia("Diseño de Sistemas", 3)
 		
-		homeMaterias = new HomeHibernateMaterias
+		homeMaterias = new RepoHibernateMaterias
 		homeMaterias.add(algoritmos)
 		homeMaterias.add(paradigmas)
 		homeMaterias.add(disenio)
@@ -38,7 +38,7 @@ class TestHomeHibernateProfesores {
 		passerini.agregarMateria(disenio)
 		dodino = new Profesor("Fernando Dodino")
 		dodino.agregarMateria(disenio)
-		homeProfes = new HomeHibernateProfesores
+		homeProfes = new RepoHibernateProfesores
 		homeProfes.add(spigariol)
 		homeProfes.add(passerini)
 		homeProfes.add(dodino)
