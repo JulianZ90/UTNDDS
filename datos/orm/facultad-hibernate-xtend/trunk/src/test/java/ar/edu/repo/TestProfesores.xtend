@@ -1,4 +1,4 @@
-package ar.edu.home
+package ar.edu.repo
 
 import ar.edu.domain.Materia
 import ar.edu.domain.Profesor
@@ -16,8 +16,8 @@ class TestProfesores {
 	Materia paradigmas
 	Materia algoritmos
 	Materia disenio
-	RepoHibernateMaterias homeMaterias
-	RepoHibernateProfesores homeProfes
+	RepoHibernateMaterias repoMaterias
+	RepoHibernateProfesores repoProfes
 	
 	@Before
 	def void init() {
@@ -25,10 +25,10 @@ class TestProfesores {
 		paradigmas = new Materia("Paradigmas de Programacion", 2)
 		disenio = new Materia("Diseño de Sistemas", 3)
 		
-		homeMaterias = new RepoHibernateMaterias
-		homeMaterias.add(algoritmos)
-		homeMaterias.add(paradigmas)
-		homeMaterias.add(disenio)
+		repoMaterias = new RepoHibernateMaterias
+		repoMaterias.add(algoritmos)
+		repoMaterias.add(paradigmas)
+		repoMaterias.add(disenio)
 		
 		spigariol = new Profesor("Lucas Spigariol")
 		spigariol.agregarMateria(algoritmos)
@@ -38,23 +38,23 @@ class TestProfesores {
 		passerini.agregarMateria(disenio)
 		dodino = new Profesor("Fernando Dodino")
 		dodino.agregarMateria(disenio)
-		homeProfes = new RepoHibernateProfesores
-		homeProfes.add(spigariol)
-		homeProfes.add(passerini)
-		homeProfes.add(dodino)
+		repoProfes = new RepoHibernateProfesores
+		repoProfes.add(spigariol)
+		repoProfes.add(passerini)
+		repoProfes.add(dodino)
 	}
 
 	@After
 	def void end() {
-		homeProfes.delete(spigariol)
-		homeProfes.delete(passerini)
-		homeProfes.delete(dodino)
-		homeMaterias.deleteAll
+		repoProfes.delete(spigariol)
+		repoProfes.delete(passerini)
+		repoProfes.delete(dodino)
+		repoMaterias.deleteAll
 	}
 		
 	@Test
 	def void testSpigariolDaParadigmas() {
-		val profesQueDanParadigmas = homeProfes.getProfesores(paradigmas)
+		val profesQueDanParadigmas = repoProfes.getProfesores(paradigmas)
 		println("profesQueDanParadigmas: " + profesQueDanParadigmas)
 		println("spigariol: " + spigariol)
 		Assert.assertTrue(profesQueDanParadigmas.contains(spigariol))
@@ -62,13 +62,13 @@ class TestProfesores {
 
 	@Test(expected=LazyInitializationException)
 	def void testNoPuedoSaberQueMateriasDaUnProfesorHaciendoGetPorId() {
-		val spigariolBase = homeProfes.get(spigariol.id)
+		val spigariolBase = repoProfes.get(spigariol.id)
 		println ("Materias de Spigariol: " + spigariolBase.materias)
 	}
 	
 	@Test
 	def void testSiPuedoSaberQueMateriasDaUnProfesorHaciendoGetPorId() {
-		val spigariolBase = homeProfes.get(spigariol.id, true)
+		val spigariolBase = repoProfes.get(spigariol.id, true)
 		println ("Materias de Spigariol: " + spigariolBase.materias)
 	}
 	
