@@ -14,7 +14,7 @@ class HomeJugadoresMongoDB implements HomeJugadores {
 
 	new() {
 		val mongo = new Mongo("localhost", 27017)
-		db = mongo.getDB("test")
+		db = mongo.getDB("local")
 		println("Conectado a MongoDB. Bases: " + db.collectionNames)
 	}
 
@@ -31,7 +31,7 @@ class HomeJugadoresMongoDB implements HomeJugadores {
 			cursor = tablaJugadores.find(searchQuery)
 			while (cursor.hasNext) {
 				val equipoDB = cursor.next
-				val BasicDBList jugadoresDB = equipoDB.get("jugadores") as BasicDBList
+				val jugadoresDB = equipoDB.get("jugadores") as BasicDBList
 				jugadoresDB.forEach  [ jugadorDB |
 					val jugadorJSON = jugadorDB as BasicDBObject
 					jugadores.add(getJugador(jugadorJSON))
@@ -48,12 +48,14 @@ class HomeJugadoresMongoDB implements HomeJugadores {
 			val casta = new BasicDBObject("$regex", nombreComienzaCon + ".*")
 			val match = new BasicDBObject("$match", new BasicDBObject("jugadores.nombre", casta))
 			val cmdBody = new BasicDBObject("aggregate", "jugadores")
-			val pipeline = new ArrayList<BasicDBObject>
-			pipeline.add(unwind)
-			pipeline.add(match)
+			val pipeline = new ArrayList<BasicDBObject> => [
+				add(unwind)
+				add(match)
+			]
 			cmdBody.put("pipeline", pipeline)
 			val result = db.command(cmdBody)
 			var jugadoresDB = (result.get("result") as BasicDBList)
+			// El query que tira es distinto
 			jugadoresDB.forEach [ jugadorDB | 
 				var jugadorJSON = (jugadorDB as BasicDBObject).get("jugadores") as BasicDBObject
 				jugadores.add(getJugador(jugadorJSON))
