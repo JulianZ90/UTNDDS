@@ -1,4 +1,4 @@
--- Quiénes está-n de novio
+-- Quiénes están de novio
 MATCH (a)-[:SALE_CON]->(b) RETURN a,b;
 
 -- Quiénes dejaron "la materia" (en realidad es el curso)
@@ -15,4 +15,8 @@ MATCH (a)-[:CURSA]->(b) RETURN a,b;
 -- Sólo los nodos
 MATCH (a)-[:CURSA]->(b) RETURN a;
 
+-- Para dar de alta la relación bidireccional
+MATCH (a {legajo: 143929}),(b {legajo: 144698}) CREATE (a)-[:SALE_CON]->(b);
 
+-- Para dar de baja una relación
+MATCH (a {legajo: 138227})-[r:SALE_CON]->(b) DELETE r;
