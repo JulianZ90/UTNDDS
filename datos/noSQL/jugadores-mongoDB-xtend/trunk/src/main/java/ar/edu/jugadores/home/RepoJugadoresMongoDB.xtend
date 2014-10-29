@@ -54,8 +54,8 @@ class RepoJugadoresMongoDB implements RepoJugadores {
 			]
 			cmdBody.put("pipeline", pipeline)
 			val result = db.command(cmdBody)
-			var jugadoresDB = (result.get("result") as BasicDBList)
-			// El query que tira es distinto
+			var jugadoresDB = result.get("result") as BasicDBList
+			// El query que tira es distinto que el "por equipo"
 			jugadoresDB.forEach [ jugadorDB | 
 				var jugadorJSON = (jugadorDB as BasicDBObject).get("jugadores") as BasicDBObject
 				jugadores.add(getJugador(jugadorJSON))
