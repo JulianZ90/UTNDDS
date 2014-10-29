@@ -8,7 +8,7 @@ import com.mongodb.DBCursor
 import com.mongodb.Mongo
 import java.util.ArrayList
 
-class HomeJugadoresMongoDB implements HomeJugadores {
+class RepoJugadoresMongoDB implements RepoJugadores {
 
 	DB db
 
@@ -37,7 +37,7 @@ class HomeJugadoresMongoDB implements HomeJugadores {
 					jugadores.add(getJugador(jugadorJSON))
 				]
 			}
-			println("Busco jugadores de --" + jugadorBusqueda)
+			println(jugadorBusqueda)
 			println("Resultado: " + jugadores)
 			println("****************************************")
 		}
@@ -61,7 +61,7 @@ class HomeJugadoresMongoDB implements HomeJugadores {
 				jugadores.add(getJugador(jugadorJSON))
 			]
 			println("Jugadores DB: " + jugadoresDB)
-			println("Busco jugadores que comiencen con --" + nombreComienzaCon)
+			println(jugadorBusqueda)
 			println("Resultado: " + jugadores)
 			println("****************************************")
 		}
