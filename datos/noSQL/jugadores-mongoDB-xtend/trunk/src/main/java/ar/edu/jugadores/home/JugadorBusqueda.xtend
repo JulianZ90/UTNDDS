@@ -16,4 +16,17 @@ class JugadorBusqueda {
 		this.equipo = equipo
 	}
 	
+	override toString() {
+		var result = "Busqueda de jugadores " 
+		if (posicion != null) {
+			result += " - posicion " + posicion
+		}
+		if (equipo != null) {
+			result += " - equipo " + equipo.nombre
+		}
+		if (nombreComienzaCon != null) {
+			result += " - nombre comienza con " + nombreComienzaCon
+		}
+		result		
+	}
 }

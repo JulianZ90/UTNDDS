@@ -8,7 +8,7 @@ import org.junit.Test
 
 class TestJugadores {
 
-	HomeJugadores homeJugadores
+	RepoJugadores homeJugadores
 	Jugador riquelme
 	Jugador palermo
 	JugadorBusqueda buscarBoca
@@ -16,7 +16,7 @@ class TestJugadores {
 
 	@Before
 	def void init() {
-		homeJugadores = new HomeJugadoresMongoDB
+		homeJugadores = new RepoJugadoresMongoDB
 		riquelme = new Jugador("Riquelme, Juan Román", "Volante")
 		palermo = new Jugador("Palermo, Martín", "Delantero")
 		buscarBoca = new JugadorBusqueda(new Equipo("Boca"))
