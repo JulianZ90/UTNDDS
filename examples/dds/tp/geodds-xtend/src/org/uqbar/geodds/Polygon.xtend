@@ -35,7 +35,6 @@ class Polygon {
 		surface = points
 	}
 
-	
 	/**
 	 * Convierte un punto a un polígono conformado inicialmente por este punto. <br>
 	 * No compatible con la idea de un polígono inmutable.<br>
@@ -46,8 +45,10 @@ class Polygon {
 
 	/**
 	 * Determina si un punto está dentro de un polígono
+	 * Para la explicación véase http://erich.realtimerendering.com/ptinpoly/
+	 * @Deprecated Usar isInside
 	 */
-	def isInside(Point point) {
+	def isInsideOld(Point point) {
 		var counter = 0
 		var point1 = surface.get(0)
 		val N = surface.size
@@ -56,9 +57,35 @@ class Polygon {
 			if (point.intersects(point1, point2)) {
 				counter++
 			}
-			point1 = point2;
+			point1 = point2
 		}
 		counter.even
+	}
+
+	/**
+	 * Función mejorada para determinar si un punto está en el polígono
+	 */
+	def isInside(Point point) {
+		val N = surface.size
+		var j = N - 1
+		var oddNodes = false
+		var x = point.longitude
+		var y = point.latitude
+
+		for (var i = 0; i < N; i++) {
+			val verticeIY = surface.get(i).latitude
+			val verticeIX = surface.get(i).longitude
+			val verticeJY = surface.get(j).latitude
+			val verticeJX = surface.get(j).longitude
+			if ((verticeIY < y && verticeJY >= y || verticeJY < y && verticeIY >= y) &&
+				(verticeIX <= x || verticeJX <= x)) {
+				if (verticeIX + (y - verticeIY) / (verticeJY - verticeIY) * (verticeJX - verticeIX) < x) {
+					oddNodes = !oddNodes
+				}
+			}
+			j = i
+		}
+		oddNodes
 	}
 
 	/**
