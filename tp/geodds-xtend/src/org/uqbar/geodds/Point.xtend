@@ -108,4 +108,11 @@ class Point {
 		return false
 	}
 
+	/**
+	 * Representación de un punto como un String
+	 */
+	override toString() {
+		"x: " + x + ", y: " + y
+	}
+	
 }
