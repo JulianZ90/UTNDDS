@@ -6,7 +6,7 @@ class ClientePosta implements Cliente {
 	static int MONTO_MINIMO = 50
 	static int PUNTOS_PROMOCION = 15
 
-	@Property int saldo
+	int saldo
 	boolean adheridoPromocion
 	boolean adheridoSafeShop
 	int puntosAcumulados
@@ -70,6 +70,10 @@ class ClientePosta implements Cliente {
 
 	override getPuntos() {
 		puntosAcumulados
+	}
+	
+	override getSaldo() {
+		saldo
 	}
 
 }
