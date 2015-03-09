@@ -1,8 +1,9 @@
 package ar.edu.clientesTarjetaCredito
 
-import ar.edu.clientesTarjetaCredito.ClienteDecorator
 import ar.edu.clientesTarjetaCredito.exceptions.BusinessException
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 class ClienteSafeShopDecorator extends ClienteDecorator {
 	int maximoCompra
 	

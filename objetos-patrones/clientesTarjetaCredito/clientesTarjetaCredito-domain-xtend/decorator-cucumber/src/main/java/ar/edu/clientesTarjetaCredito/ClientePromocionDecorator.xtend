@@ -1,12 +1,13 @@
 package ar.edu.clientesTarjetaCredito
 
-import ar.edu.clientesTarjetaCredito.ClienteDecorator
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 class ClientePromocionDecorator extends ClienteDecorator {
 	static int MONTO_MINIMO = 50
 	static int PUNTOS_PROMOCION = 15
 
-	@Property int puntosAcumulados
+	int puntosAcumulados
 
 	new(Cliente decorado) {
 		super(decorado)

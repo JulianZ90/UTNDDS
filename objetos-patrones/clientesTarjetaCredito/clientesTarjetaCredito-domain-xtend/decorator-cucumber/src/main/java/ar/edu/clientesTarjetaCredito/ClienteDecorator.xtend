@@ -1,10 +1,11 @@
 package ar.edu.clientesTarjetaCredito
 
-import ar.edu.clientesTarjetaCredito.Cliente
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 abstract class ClienteDecorator implements Cliente {
 	
-	@Property Cliente decorado
+	Cliente decorado
 	
 	new(Cliente cliente) {
 		decorado = cliente
