@@ -23,7 +23,7 @@ class TestCliente {
 	@Test
 	def void francoComprandoSinControl() {
 		franco.comprar(60)
-		Assert::assertEquals(210, franco.saldo)
+		Assert.assertEquals(210, franco.saldo)
 	}
 
 	@Test(expected=typeof(BusinessException))
@@ -34,7 +34,7 @@ class TestCliente {
 	@Test
 	def void francoAcumulaPremios() {
 		francoEnPromo.comprar(70)
-		Assert::assertEquals(15, francoEnPromo.puntosAcumulados)
+		Assert.assertEquals(15, francoEnPromo.puntosAcumulados)
 	}
 
 	@Test(expected=typeof(BusinessException))
@@ -45,7 +45,7 @@ class TestCliente {
 //	@Test
 //	def void francoConSafeShopCompraElMinimoYAcumulaPremios() {
 //		francoConNoviaEnPromo.comprar(52)
-//		Assert::assertEquals(15, francoConNoviaEnPromo.puntosAcumulados)
+//		Assert.assertEquals(15, francoConNoviaEnPromo.puntosAcumulados)
 //	}
 
 }
