@@ -1,10 +1,11 @@
 package ar.edu.clientesTarjetaCredito
 
-import ar.edu.clientesTarjetaCredito.Cliente
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 class ClientePosta implements Cliente {
 	
-	@Property int saldo
+	int saldo
 	
 	new() {
 		saldo = 0
