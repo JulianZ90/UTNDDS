@@ -2,9 +2,11 @@ package ar.edu.clientesTarjetaCredito
 
 import java.util.ArrayList
 import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 class ClientePosta implements Cliente {
-	@Property int saldo
+	int saldo
 	int puntosAcumulados
 	List<CondicionComercial> condicionesComerciales
 
