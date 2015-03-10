@@ -3,11 +3,12 @@ package ar.edu.examenes
 import java.util.ArrayList
 import java.util.HashSet
 import java.util.Set
-import org.eclipse.xtend.lib.Property
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 class ItemExamenMultiple extends ItemExamen {
 	
-	@Property Set<Respuesta> respuestas
+	Set<Respuesta> respuestas
 	
 	new() {
 		respuestas = new HashSet

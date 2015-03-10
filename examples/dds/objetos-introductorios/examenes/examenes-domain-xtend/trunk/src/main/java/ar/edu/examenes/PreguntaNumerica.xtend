@@ -1,10 +1,11 @@
 package ar.edu.examenes
 
-import ar.edu.examenes.Pregunta
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 class PreguntaNumerica extends Pregunta {
 	
-	@Property Respuesta respuesta
+	Respuesta respuesta
 	
 	new() {
 		

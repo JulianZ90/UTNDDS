@@ -1,8 +1,11 @@
 package ar.edu.examenes
 
+import org.eclipse.xtend.lib.annotations.Accessors
+
+@Accessors
 abstract class Pregunta {
 	
-	@Property String descripcion
+	String descripcion
 
 	def boolean bienRespondida(ItemExamen itemExamen) {
 		false	
