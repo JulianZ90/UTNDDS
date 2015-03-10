@@ -2,16 +2,18 @@ package ar.edu.agricultores
 
 import java.util.Date
 import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 class Venta {
 
-	@Property Date fechaVenta
-	@Property Parcela parcela
-	@Property int cantidadKilos
-	@Property Date fechaNacimientoComprador
-	@Property String nombreComprador
-	@Property String tipoComprador
-	@Property List<Cultivo> cultivosSinRecargo
+	Date fechaVenta
+	Parcela parcela
+	int cantidadKilos
+	Date fechaNacimientoComprador
+	String nombreComprador
+	String tipoComprador
+	List<Cultivo> cultivosSinRecargo
 
 	public static double COEFICIENTE_PARA_EXTRANJEROS = 0.4
 

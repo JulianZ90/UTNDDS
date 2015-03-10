@@ -1,10 +1,11 @@
 package ar.edu.agricultores
 
-import ar.edu.agricultores.Soja
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 class SojaTransgenica extends Soja {
 
-	@Property boolean puedeSufrirMutaciones
+	boolean puedeSufrirMutaciones
 
 	new(boolean pPuedeSufrirMutaciones) {
 		puedeSufrirMutaciones = pPuedeSufrirMutaciones
