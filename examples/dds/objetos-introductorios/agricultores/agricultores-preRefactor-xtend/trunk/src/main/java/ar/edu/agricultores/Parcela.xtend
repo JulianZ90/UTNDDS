@@ -1,11 +1,14 @@
 package ar.edu.agricultores
 
+import org.eclipse.xtend.lib.annotations.Accessors
+
+@Accessors
 class Parcela {
 
-	@Property int hectareas
-	@Property Cultivo cultivo
-	@Property int hectareasCultivadas
-	@Property int cantidadEnSilo
+	int hectareas
+	Cultivo cultivo
+	int hectareasCultivadas
+	int cantidadEnSilo
 
 	new(int pHectareas, Cultivo pCultivo) {
 		hectareas = pHectareas

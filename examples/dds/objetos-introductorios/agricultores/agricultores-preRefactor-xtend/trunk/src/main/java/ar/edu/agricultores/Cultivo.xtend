@@ -2,10 +2,12 @@ package ar.edu.agricultores
 
 import java.util.ArrayList
 import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 abstract class Cultivo {
 	
-	@Property List<Conservante> conservantes
+	List<Conservante> conservantes
 	
 	new() {
 		conservantes = new ArrayList<Conservante>	
