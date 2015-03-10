@@ -1,12 +1,13 @@
 package ar.edu.examenes
 
-import org.eclipse.xtend.lib.Property
-import java.util.List
 import java.util.ArrayList
+import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 class Respuesta {
 	
-	@Property Object valor
+	Object valor
 	
 	new(Object v) {
 		valor = v

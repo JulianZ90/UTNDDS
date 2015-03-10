@@ -1,8 +1,11 @@
 package ar.edu.examenes
 
+import org.eclipse.xtend.lib.annotations.Accessors
+
+@Accessors
 class ItemExamenSimple extends ItemExamen {
 	
-	@Property Respuesta respuestaContestada
+	Respuesta respuestaContestada
 	
 	new(Object valor) {
 		respuestaContestada = new Respuesta(valor)	

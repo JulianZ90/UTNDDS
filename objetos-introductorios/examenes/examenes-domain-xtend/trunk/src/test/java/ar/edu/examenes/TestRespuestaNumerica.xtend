@@ -32,17 +32,17 @@ class TestRespuestaNumerica {
 	
 	@Test
 	def responderAnioNacimientoYPFOk() {
-		Assert::assertTrue("No es correcta la respuesta " + nacimientoYPF, nacimientoYPF.bienRespondida(new ItemExamenSimple(1922)))
+		Assert.assertTrue("No es correcta la respuesta " + nacimientoYPF, nacimientoYPF.bienRespondida(new ItemExamenSimple(1922)))
 	}
 	
 	@Test
 	def responderAnioNacimientoYPFIncorrecta() {
-		Assert::assertFalse("No es correcta la respuesta para " + nacimientoYPF, nacimientoYPF.bienRespondida(new ItemExamenSimple(1923)))
+		Assert.assertFalse("No es correcta la respuesta para " + nacimientoYPF, nacimientoYPF.bienRespondida(new ItemExamenSimple(1923)))
 	}
 	
 	@Test
 	def responderCargosCafiero() {
-		Assert::assertTrue("No es correcta la respuesta para " + cargosCafiero, cargosCafiero.bienRespondida(respuestaCafiero))
+		Assert.assertTrue("No es correcta la respuesta para " + cargosCafiero, cargosCafiero.bienRespondida(respuestaCafiero))
 	}
 
 }
