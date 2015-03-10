@@ -2,15 +2,14 @@ package ar.edu.vehiculos
 
 import ar.edu.vehiculos.Vehiculo
 
-class Avion implements Vehiculo {
-	
+class Auto implements Vehiculo {
 
 	override avanzar() {
-		println("Avanza avion!")
+		println("Avanza auto")
 	}
 	
 	override chocar(Vehiculo vehiculo) {
-		throw new Exception("Imposible chocar con un avion")
+		println("Chocamosss!!!!")
 	}
 	
 }
