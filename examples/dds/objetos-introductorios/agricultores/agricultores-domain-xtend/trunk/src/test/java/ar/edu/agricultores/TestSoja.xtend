@@ -21,8 +21,8 @@ class TestSoja {
 	
 	@Test
 	def testCostoSoja() {
-		Assert::assertEquals(500, parcela50.costoTotal, 0.1)
-		Assert::assertEquals(3000, parcela300.costoTotal, 0.1)
+		Assert.assertEquals(500, parcela50.costoTotal, 0.1)
+		Assert.assertEquals(3000, parcela300.costoTotal, 0.1)
 	}		
 
 	// PUNTO 2
