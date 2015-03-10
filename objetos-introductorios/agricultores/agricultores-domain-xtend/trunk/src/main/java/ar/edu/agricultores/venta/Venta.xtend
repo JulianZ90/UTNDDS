@@ -1,15 +1,16 @@
 package ar.edu.agricultores.venta
 
-import java.util.Date
-import org.eclipse.xtend.lib.Property
 import ar.edu.agricultores.Parcela
+import java.util.Date
+import org.eclipse.xtend.lib.annotations.Accessors
 
+@Accessors
 class Venta {
 	
-	@Property Date fechaVenta
-	@Property Parcela parcela
-	@Property int cantidadKilos
-	@Property Comprador comprador
+	Date fechaVenta
+	Parcela parcela
+	int cantidadKilos
+	Comprador comprador
 	
 	// PUNTO 3
 	def precio() {
