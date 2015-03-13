@@ -17,8 +17,6 @@ clases concretas o clases abstractas si lo considera apropiado.
 
 Construcción del proyecto
 =========================
-El projecto cuenta con un .project, para poder importalo directamente en Eclipse. 
-
-Cuenta  también con pom.xml para los alumnos que ya estén familiarizados con maven. 
+Cuenta con un pom.xml para los alumnos que ya estén familiarizados con maven. 
   
    
