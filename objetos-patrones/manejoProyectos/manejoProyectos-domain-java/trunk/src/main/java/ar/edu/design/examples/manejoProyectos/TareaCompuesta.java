@@ -30,11 +30,7 @@ public class TareaCompuesta implements TipoDeTarea {
 
 	@Override
 	public double getCostoTotal (Tarea tarea) {
-		double costo = this.getCosto(tarea);
-		for (Tarea t : this.subtareas) {
-			costo += t.getCostoTotal();
-		}
-		return costo;
+		return this.subtareas.stream().mapToDouble(subtarea -> subtarea.getCostoTotal()).sum();
 	}
 
 	@Override

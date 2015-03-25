@@ -31,11 +31,7 @@ public class Tarea {
 	}
 
 	public double getCostoImpositivo(double costo) {
-		double total = 0;
-		for (Impuesto impuesto : this.impuestos) {
-			total += impuesto.getCostoImpositivo(costo);
-		}
-		return total;
+		return this.impuestos.stream().mapToDouble(impuesto -> impuesto.getCostoImpositivo(costo)).sum();
 	}
 
 	public TipoDeTarea getTipoDeTarea() {
