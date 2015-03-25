@@ -28,9 +28,7 @@ public class SimpleListaDeCorreo implements ListaDeCorreo {
   @Override
   public void agregarUsuarioPendiente(Usuario usuario) {
     this.usuariosPendientes.add(usuario);
-    for (Observer observer : this.observers) {
-      observer.notifySuscripcion(usuario);
-    }
+    this.observers.forEach(observer -> observer.notifySuscripcion(usuario));
   }
 
   @Override
@@ -58,9 +56,7 @@ public class SimpleListaDeCorreo implements ListaDeCorreo {
   }
 
   public void enviarMail(String titulo, String body, Usuario remitente) {
-    for (Usuario usuario : this.suscriptos) {
-      mailSender.enviarMail(new Mail(titulo, body, remitente.getMail(), usuario.getMail()));
-    }
+    this.suscriptos.forEach(usuario -> mailSender.enviarMail(new Mail(titulo, body, remitente.getMail(), usuario.getMail())));
   }
 
   public MailSender
