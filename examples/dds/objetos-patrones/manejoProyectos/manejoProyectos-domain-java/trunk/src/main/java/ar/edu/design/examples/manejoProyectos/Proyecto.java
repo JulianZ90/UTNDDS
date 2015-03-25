@@ -7,10 +7,6 @@ public class Proyecto {
 	private List<Tarea> tareas;
 
 	public double getCostoTotal() {
-		double total = 0;
-		for (Tarea tarea : this.tareas) {
-			total = total + tarea.getCostoTotal();
-		}
-		return total;
+		return this.tareas.stream().mapToDouble(tarea -> tarea.getCostoTotal()).sum();
 	}
 }
