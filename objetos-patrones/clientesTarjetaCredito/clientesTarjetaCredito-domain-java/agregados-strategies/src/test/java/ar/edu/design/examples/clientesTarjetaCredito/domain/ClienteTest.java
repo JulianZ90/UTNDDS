@@ -1,8 +1,7 @@
 package ar.edu.design.examples.clientesTarjetaCredito.domain;
 
 
-import junit.framework.Assert;
-
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 

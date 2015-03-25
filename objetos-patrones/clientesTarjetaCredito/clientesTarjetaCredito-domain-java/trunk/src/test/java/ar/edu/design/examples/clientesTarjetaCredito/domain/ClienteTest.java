@@ -1,7 +1,7 @@
 package ar.edu.design.examples.clientesTarjetaCredito.domain;
 
-import junit.framework.Assert;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -68,7 +68,7 @@ public class ClienteTest {
 		mixto.comprar(110);
 	}
 
-//	no puedo probarlo de manera sencilla, debo agregar una validación
+//	no puedo probarlo de manera sencilla, debo agregar una validaciï¿½n
 //	hardcoded en el constructor de Promocion ==> si el cliente es
 //	de tipo SafeShop kaboommm throw an Exception
 //	@Test(expected = BusinessException.class)
