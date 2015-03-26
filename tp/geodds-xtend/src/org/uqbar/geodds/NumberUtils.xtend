@@ -14,7 +14,7 @@ package org.uqbar.geodds
  * @author DDS
  */
 class NumberUtils {
-	
+
 	/**
 	 * Devuelve el menor valor entre dos números
 	 */
