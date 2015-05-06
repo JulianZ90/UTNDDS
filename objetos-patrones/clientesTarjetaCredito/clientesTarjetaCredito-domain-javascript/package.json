@@ -1,0 +1,15 @@
+{
+  "name": "javascript-2015",
+  "version": "1.0.0-SNAPSHOT",
+  "description": "Ejemplo clientes inicial",
+  "main": "01_cliente.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "mocha": "~2.2.4",
+    "chai": "~2.2.0"
+  }
+}
