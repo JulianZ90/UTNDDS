@@ -1,0 +1,20 @@
+{
+  "name": "clientes-domain",
+  "version": "1.0.0-SNAPSHOT",
+  "description": "Ejemplo clientes / Modelar objetos. Strategies",
+  "keywords": ["PAIU",
+     "design",
+     "customers",
+     "modeling",
+     "oop"
+  ],
+  "author": {
+    "name": "Fernando Dodino"
+  },
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "mocha": "~2.2.4",
+    "chai": "~2.2.0",
+    "klass": "~1.4.0"
+  }
+}
