@@ -27,29 +27,29 @@ Cliente.prototype = {
         this.deuda = this.deuda + monto;
     },
     safeShop: function(unMontoMaximo) {
-        var clienteDecorado = clone(this);
-        clienteDecorado.montoMaximo = unMontoMaximo;
-        clienteDecorado.cliente = this;
-        clienteDecorado.comprar = function(monto) {
+        var clienteDecorador = clone(this);
+        clienteDecorador.montoMaximo = unMontoMaximo;
+        clienteDecorador.cliente = this;
+        clienteDecorador.comprar = function(monto) {
             "use strict";
             if (monto > this.montoMaximo) {
                 throw new Error("No debe comprar por mas de " + this.montoMaximo);
             }
             this.cliente.comprar(monto);
         };
-        return clienteDecorado;
+        return clienteDecorador;
     },
     promocion: function() {
-        var clienteDecorado = clone(this);
-        clienteDecorado.cliente = this;
-        clienteDecorado.comprar = function(monto) {
+        var clienteDecorador = clone(this);
+        clienteDecorador.cliente = this;
+        clienteDecorador.comprar = function(monto) {
             "use strict";
             this.cliente.comprar(monto);
             if (monto > 50) {
                 this.cliente.agregarPuntos(15);
             }
         };
-        return clienteDecorado;
+        return clienteDecorador;
     }
 };
 
