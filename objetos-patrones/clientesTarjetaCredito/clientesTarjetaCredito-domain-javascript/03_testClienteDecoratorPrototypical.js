@@ -39,8 +39,8 @@ describe('clientes', function() {
     });
     it('should add points', function() {
         clientePromo.comprar(150);
-        // si el método hace this.agregarPuntos
-        // ricardo no tiene puntos!!!
+        // si el método promocion() hiciera this.agregarPuntos(...)
+        // ricardo no tendría puntos!!!
         // pero el cliente promo sí
         // assert.equal(15, clientePromo.puntos);
         assert.equal(15, ricardo.puntos);
