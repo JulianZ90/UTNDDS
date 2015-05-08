@@ -1,6 +1,9 @@
 {
-  "name": "clientesTC-domain",
+  "name": "clientes-tarjeta-credito-domain",
   "version": "1.0.0-SNAPSHOT",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha -R spec -t 50 test/**/*.test.js"
+  },
   "description": "Ejemplo Decorators de clientes implementado de diferentes formas",
   "keywords": ["PAIU",
      "design",
@@ -14,6 +17,6 @@
   "license": "BSD-2-Clause",
   "devDependencies": {
     "mocha": "~2.2.4",
-    "chai": "~2.2.0",
+    "chai": "~2.2.0"
   }
 }
