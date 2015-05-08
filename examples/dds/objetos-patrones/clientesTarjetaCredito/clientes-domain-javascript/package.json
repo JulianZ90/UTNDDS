@@ -2,6 +2,9 @@
   "name": "clientes-domain",
   "version": "1.0.0-SNAPSHOT",
   "description": "Ejemplo clientes / Modelar objetos. Strategies",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha -R spec -t 50 test/**/*.test.js"
+  },
   "keywords": ["PAIU",
      "design",
      "customers",

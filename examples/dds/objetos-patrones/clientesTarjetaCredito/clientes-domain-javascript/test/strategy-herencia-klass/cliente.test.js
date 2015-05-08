@@ -1,7 +1,9 @@
 var assert = require("assert");
-var Cliente = require("./04_cliente").Cliente;
-var ClienteEspecial = require("./04_cliente").ClienteEspecial;
-describe('clientes', function() {
+
+var Cliente = require("../../src/strategy-herencia-klass/cliente").Cliente;
+var ClienteEspecial = require("../../src/strategy-herencia-klass/cliente").ClienteEspecial;
+
+describe('#Cliente - Herencia Klass', function() {
     var manuel;
     var ricardo;
 

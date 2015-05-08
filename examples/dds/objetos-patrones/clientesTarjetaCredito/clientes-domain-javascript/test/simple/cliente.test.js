@@ -1,3 +1,6 @@
+var assert = require("assert");
+var Cliente = require("../../src/simple/cliente");
+
 var raul = {
 
     deuda: 0,
@@ -9,9 +12,7 @@ var raul = {
     }
 };
 
-var assert = require("assert");
-var Cliente = require("./01_cliente");
-describe('clientes', function() {
+describe('#Cliente - Simple', function() {
     "use strict";
 
     var manuel;

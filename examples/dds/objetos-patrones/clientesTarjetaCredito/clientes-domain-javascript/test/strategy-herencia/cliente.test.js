@@ -1,16 +1,14 @@
 var assert = require("assert");
-var Cliente = require("./03_cliente").Cliente;
-var ClienteEspecial = require("./03_cliente").ClienteEspecial;
+var Cliente = require("../../src/strategy-herencia/cliente").Cliente;
+var ClienteEspecial = require("../../src/strategy-herencia/cliente").ClienteEspecial;
 
-describe('clientes', function() {
-    "use strict";
+describe('#Cliente - Strategy Herencia', function() {
     var manuel;
     var ricardo;
 
     beforeEach(function() {
         manuel = new Cliente();
         ricardo = new Cliente();
-        ricardo.criterioMontoCredito = new ClienteEspecial();
         ricardo.deuda = 1000;
     });
     it('should calculate left amount', function() {
@@ -20,7 +18,8 @@ describe('clientes', function() {
         assert.equal(3000, manuel.montoMaximoCredito());
     });
     it('should calculate maximum credit amount for a special customer', function() {
-        assert.equal(4500, ricardo.montoMaximoCredito());
+        ricardo.criterioMontoCredito = new ClienteEspecial();
+        assert.equal(5000, ricardo.montoMaximoCredito());
     });
 
 });
