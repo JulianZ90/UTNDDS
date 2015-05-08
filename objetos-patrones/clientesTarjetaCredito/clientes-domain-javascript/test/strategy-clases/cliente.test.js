@@ -1,13 +1,16 @@
 var assert = require("assert");
-var Cliente = require("./06_cliente_klass").Cliente;
-var ClienteEspecial = require("./06_cliente_klass").ClienteEspecial;
-describe('clientes', function() {
+var Cliente = require("../../src/strategy-clases/cliente").Cliente;
+var ClienteEspecial = require("../../src/strategy-clases/cliente").ClienteEspecial;
+
+describe('#Cliente - Strategy Clases', function() {
+    "use strict";
     var manuel;
     var ricardo;
 
     beforeEach(function() {
         manuel = new Cliente();
         ricardo = new Cliente();
+        ricardo.criterioMontoCredito = new ClienteEspecial();
         ricardo.deuda = 1000;
     });
     it('should calculate left amount', function() {
@@ -17,8 +20,7 @@ describe('clientes', function() {
         assert.equal(3000, manuel.montoMaximoCredito());
     });
     it('should calculate maximum credit amount for a special customer', function() {
-        ricardo.criterioMontoCredito = new ClienteEspecial();
-        assert.equal(5000, ricardo.montoMaximoCredito());
+        assert.equal(4500, ricardo.montoMaximoCredito());
     });
 
 });

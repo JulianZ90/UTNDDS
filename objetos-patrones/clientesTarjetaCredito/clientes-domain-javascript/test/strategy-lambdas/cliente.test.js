@@ -1,7 +1,7 @@
 var assert = require("assert");
-var Cliente = require("./02_cliente");
+var Cliente = require("../../src/strategy-lambdas/cliente");
 
-describe('clientes', function() {
+describe('Cliente - Lambdas', function() {
     "use strict";
     var manuel;
 
