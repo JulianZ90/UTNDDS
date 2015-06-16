@@ -6,7 +6,7 @@ Function.prototype.extends = function(padre) {
     } else {
         this.prototype = padre;
         this.prototype.constructor = this;
-        this.prototype.parent = padre;
+        this.prototype.parent = Object.getPrototypeOf(padre);
     }
 };
 
