@@ -1,7 +1,7 @@
 var assert = require("assert");
 
 var Cliente = require("../../src/strategy-herencia-cheta/cliente").Cliente;
-var ClienteEspecial = require("../../src/strategy-herencia-cheta/cliente").ClienteEspecial;
+var CriterioEspecial = require("../../src/strategy-herencia-cheta/cliente").CriterioEspecial;
 
 describe('#Cliente - Herencia cheta', function() {
     var manuel;
@@ -19,7 +19,7 @@ describe('#Cliente - Herencia cheta', function() {
         assert.equal(3000, manuel.montoMaximoCredito());
     });
     it('should calculate maximum credit amount for a special customer', function() {
-        ricardo.criterioMontoCredito = new ClienteEspecial();
+        ricardo.criterioMontoCredito = new CriterioEspecial();
         assert.equal(5000, ricardo.montoMaximoCredito());
     });
 
