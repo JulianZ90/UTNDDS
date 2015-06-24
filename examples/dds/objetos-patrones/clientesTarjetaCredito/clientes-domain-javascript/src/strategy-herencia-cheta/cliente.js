@@ -22,13 +22,13 @@ CriterioMontoCredito.prototype.montoMaximo = function(unCliente) {
     return 0.3 * unCliente.ingreso;
 };
 
-function ClienteComun() {}
-ClienteComun.extends(CriterioMontoCredito);
+function CriterioComun() {}
+CriterioComun.extends(CriterioMontoCredito);
 
-function ClienteEspecial() {}
-ClienteEspecial.extends(CriterioMontoCredito);
+function CriterioEspecial() {}
+CriterioEspecial.extends(CriterioMontoCredito);
 
-ClienteEspecial.prototype.montoMaximo = function(unCliente) {
+CriterioEspecial.prototype.montoMaximo = function(unCliente) {
     "use strict";
     return this.parent.montoMaximo(unCliente) + 2000;
 };
@@ -41,7 +41,7 @@ function Cliente() {
     // Atributos
     this.deuda = 0;
     this.ingreso = 10000;
-    this.criterioMontoCredito = new ClienteComun();
+    this.criterioMontoCredito = new CriterioComun();
 
     // Métodos
     this.montoMaximoCredito = function() {
@@ -56,6 +56,6 @@ function Cliente() {
 
 module.exports = {
     Cliente: Cliente,
-    ClienteComun: ClienteComun,
-    ClienteEspecial: ClienteEspecial,
+    CriterioComun: CriterioComun,
+    CriterioEspecial: CriterioEspecial,
 };

@@ -7,14 +7,14 @@ CriterioMontoCredito.prototype.montoMaximo = function(unCliente) {
     return 0.3 * unCliente.ingreso;
 };
 
-function ClienteComun() {}
+function CriterioComun() {}
 
 // Definimos la herencia definiendo CriterioMontoCredito
-// como prototype de cada subclase
-ClienteComun.prototype = Object.create(CriterioMontoCredito.prototype);
+// como prototype de cada criterio
+CriterioComun.prototype = Object.create(CriterioMontoCredito.prototype);
 //
 
-function ClienteEspecial() {
+function CriterioEspecial() {
     "use strict";
     this.prototype = new CriterioMontoCredito();
 
@@ -32,7 +32,7 @@ function Cliente() {
     // Atributos
     this.deuda = 0;
     this.ingreso = 10000;
-    this.criterioMontoCredito = new ClienteComun();
+    this.criterioMontoCredito = new CriterioComun();
 
     // Métodos
     this.montoMaximoCredito = function() {
@@ -47,7 +47,7 @@ function Cliente() {
 
 module.exports = {
     Cliente: Cliente,
-    ClienteComun: ClienteComun,
-    ClienteEspecial: ClienteEspecial,
+    CriterioComun: CriterioComun,
+    CriterioEspecial: CriterioEspecial,
     CriterioMontoCredito: CriterioMontoCredito
 };

@@ -1,6 +1,6 @@
 var assert = require("assert");
 var Cliente = require("../../src/strategy-clases/cliente").Cliente;
-var ClienteEspecial = require("../../src/strategy-clases/cliente").ClienteEspecial;
+var CriterioEspecial = require("../../src/strategy-clases/cliente").CriterioEspecial;
 
 describe('#Cliente - Strategy Clases', function() {
     "use strict";
@@ -10,7 +10,7 @@ describe('#Cliente - Strategy Clases', function() {
     beforeEach(function() {
         manuel = new Cliente();
         ricardo = new Cliente();
-        ricardo.criterioMontoCredito = new ClienteEspecial();
+        ricardo.criterioMontoCredito = new CriterioEspecial();
         ricardo.deuda = 1000;
     });
     it('should calculate left amount', function() {

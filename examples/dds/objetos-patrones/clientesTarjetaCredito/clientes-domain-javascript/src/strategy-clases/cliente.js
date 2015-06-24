@@ -1,4 +1,4 @@
-function ClienteComun() {
+function CriterioComun() {
     "use strict";
 
     this.montoMaximo = function(unCliente) {
@@ -7,7 +7,7 @@ function ClienteComun() {
 
 }
 
-function ClienteEspecial() {
+function CriterioEspecial() {
     "use strict";
 
     this.montoMaximo = function(unCliente) {
@@ -23,7 +23,7 @@ function Cliente() {
     // Atributos
     this.deuda = 0;
     this.ingreso = 10000;
-    this.criterioMontoCredito = new ClienteComun();
+    this.criterioMontoCredito = new CriterioComun();
 
     // Métodos
     this.montoMaximoCredito = function() {
@@ -38,6 +38,6 @@ function Cliente() {
 
 module.exports = {
     Cliente: Cliente,
-    ClienteComun: ClienteComun,
-    ClienteEspecial: ClienteEspecial
+    CriterioComun: CriterioComun,
+    CriterioEspecial: CriterioEspecial
 };
