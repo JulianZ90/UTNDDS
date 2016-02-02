@@ -1,7 +1,7 @@
-package edu.utn.frba.extend.dominio
+package ar.edu.canjePremios
 
-import edu.utn.frba.extend.excepciones.NoTienePuntosSuficientesException
-import edu.utn.frba.extend.excepciones.NoHayStockException
+import ar.edu.canjePremios.excepciones.NoTienePuntosSuficientesException
+import ar.edu.canjePremios.excepciones.NoHayStockException
 
 class Cliente {
 

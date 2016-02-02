@@ -1,6 +1,6 @@
-package edu.utn.frba.mock
+package ar.edu.canjePremios.mock
 
-import edu.utn.frba.extend.dominio.Premio
+import ar.edu.canjePremios.Premio
 
 class PremioNoDisponible extends Premio {
 

@@ -1,4 +1,4 @@
-package edu.utn.frba.extend.dominio
+package ar.edu.canjePremios
 
 class Premio {
 	int valor
