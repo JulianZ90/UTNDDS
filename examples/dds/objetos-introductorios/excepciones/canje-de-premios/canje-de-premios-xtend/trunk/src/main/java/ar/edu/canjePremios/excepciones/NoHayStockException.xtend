@@ -1,4 +1,4 @@
-package edu.utn.frba.extend.excepciones
+package ar.edu.canjePremios.excepciones
 
 class NoHayStockException extends RuntimeException {
 

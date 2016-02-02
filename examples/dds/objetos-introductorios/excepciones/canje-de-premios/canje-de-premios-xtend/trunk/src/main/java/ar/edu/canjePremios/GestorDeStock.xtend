@@ -1,7 +1,7 @@
-package edu.utn.frba.extend.dominio
+package ar.edu.canjePremios
 
 import java.sql.SQLException
-import edu.utn.frba.extend.excepciones.NoHayStockException
+import ar.edu.canjePremios.excepciones.NoHayStockException
 
 class GestorDeStock {
 	SqlDBConnector sqlDBConnector = new SqlDBConnector
@@ -12,7 +12,7 @@ class GestorDeStock {
 
 	def actualizarStock(Premio unPremio) {
 
-		/////Este armaría la query con los parametros necesarios para 
+		/////Este armarï¿½a la query con los parametros necesarios para 
 		////llamar al sqlDBConnector
 		try {
 

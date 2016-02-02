@@ -1,7 +1,7 @@
-package edu.utn.frba.mock
+package ar.edu.canjePremios.mock
 
-import edu.utn.frba.extend.dominio.SqlDBConnector
-import edu.utn.frba.extend.excepciones.NoHayConexionException
+import ar.edu.canjePremios.SqlDBConnector
+import ar.edu.canjePremios.excepciones.NoHayConexionException
 
 class SqlDBConnectorFailed extends SqlDBConnector {
 

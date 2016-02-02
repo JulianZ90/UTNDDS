@@ -1,9 +1,9 @@
-package edu.utn.frba.extend.dominio
-import edu.utn.frba.mock.PremioNoDisponible
+package ar.edu.canjePremios
+import ar.edu.canjePremios.mock.PremioNoDisponible
 import java.sql.SQLException
 
 class SqlDBConnector {
-	///Este se conectaría con la base
+	///Este se conectarï¿½a con la base
 	def query(Premio unPremio){
 		//obtiene la conexion
 		obtenerConexion();
