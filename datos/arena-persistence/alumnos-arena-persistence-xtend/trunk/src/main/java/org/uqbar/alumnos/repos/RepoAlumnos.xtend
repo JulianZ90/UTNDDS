@@ -1,10 +1,9 @@
 package org.uqbar.alumnos.repos
 
 import org.uqbar.alumnos.domain.Alumno
+import uqbar.arena.persistence.PersistentRepo
 
-import uqbar.arena.persistence.PersistentHome
-
-class RepoAlumnos extends PersistentHome<Alumno> {
+class RepoAlumnos extends PersistentRepo<Alumno> {
 
 	override getEntityType() {
 		typeof(Alumno)
@@ -27,8 +26,7 @@ class RepoAlumnos extends PersistentHome<Alumno> {
 		if (alumnoDB == null) {
 			this.create(alumno)
 			alumnoDB = alumno
-		} else {
-		}
+		} 
 		alumnoDB
 	}
 
