@@ -8,6 +8,7 @@ import org.uqbar.commons.utils.Observable
 @Observable
 @Accessors
 class Pelicula {
+	Long id
 	String titulo
 	String frase
 	int anio
@@ -15,6 +16,13 @@ class Pelicula {
 	
 	override toString() {
 		titulo + " (" + anio + ")" 
+	}
+	
+	def agregarPersonaje(String _roles, Actor _actor) {
+		personajes.add(new Personaje => [
+			roles = #[_roles]
+			actor = _actor
+		])
 	}
 	
 }
