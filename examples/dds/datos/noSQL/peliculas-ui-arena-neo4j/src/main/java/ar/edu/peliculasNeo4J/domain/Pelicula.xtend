@@ -3,6 +3,7 @@ package ar.edu.peliculasNeo4J.domain
 import java.util.ArrayList
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
+import static org.uqbar.commons.model.ObservableUtils.*
 import org.uqbar.commons.utils.Observable
 
 @Observable
@@ -23,6 +24,12 @@ class Pelicula {
 			roles = #[_roles]
 			actor = _actor
 		])
+		firePropertyChanged(this, "personajes")
+	}
+	
+	def eliminarPersonaje(Personaje personaje) {
+		personajes.remove(personaje)
+		firePropertyChanged(this, "personajes")
 	}
 	
 }

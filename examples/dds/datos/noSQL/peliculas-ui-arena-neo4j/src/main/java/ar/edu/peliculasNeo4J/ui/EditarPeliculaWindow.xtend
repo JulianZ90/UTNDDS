@@ -1,19 +1,18 @@
 package ar.edu.peliculasNeo4J.ui
 
+import ar.edu.peliculasNeo4J.appModel.AgregarPersonaje
 import ar.edu.peliculasNeo4J.appModel.EditarPelicula
-import ar.edu.peliculasNeo4J.domain.Actor
 import ar.edu.peliculasNeo4J.domain.Pelicula
 import ar.edu.peliculasNeo4J.domain.Personaje
 import ar.edu.peliculasNeo4J.repo.RepoPeliculas
+import org.uqbar.arena.bindings.NotNullObservable
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.NumericField
 import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
@@ -33,7 +32,6 @@ class EditarPeliculaWindow extends Dialog<EditarPelicula> {
 	}
 
 	override createMainTemplate(Panel mainPanel) {
-		mainPanel.layout = new HorizontalLayout
 		val panelIzquierdo = new Panel(mainPanel)
 		super.createMainTemplate(panelIzquierdo)
 		this.createResultsGrid(mainPanel)
@@ -60,18 +58,26 @@ class EditarPeliculaWindow extends Dialog<EditarPelicula> {
 		]
 	}
 
-	override protected void addActions(Panel actions) {
-		new Button(actions) => [
+	override protected addActions(Panel actionsPanel) {
+		val botonera = new Panel(actionsPanel)
+		botonera.layout = new HorizontalLayout
+		actionsPanel.width = 250
+		new Button(botonera) => [
 			caption = "Aceptar"
 			onClick [|
 				modelObject.aceptar
 				this.accept
 			]
 			setAsDefault
-			disableOnError
+//			disableOnError
 		]
 
-		new Button(actions) => [
+		new Button(botonera) => [
+			caption = "Agregar personaje"
+			onClick [|this.agregarPersonaje]
+		]
+
+		new Button(botonera) => [
 			caption = "Cancelar"
 			onClick [|
 				this.cancel
@@ -82,59 +88,42 @@ class EditarPeliculaWindow extends Dialog<EditarPelicula> {
 
 	def protected createResultsGrid(Panel mainPanel) {
 		val panelDerecho = new Panel(mainPanel)
+
 		// Llevar a otra pantalla los personajes
-		new Label(mainPanel) => [
-			value <=> "pelicula.id"
-		]
 		val table = new Table<Personaje>(panelDerecho, typeof(Personaje)) => [
 			numberVisibleRows = 5
 			width = 650
-			// No refresca los personajes en la edición 
 			items <=> "pelicula.personajes"
 			value <=> "personajeSeleccionado"
 		]
-		this.buildColumn(table, "Roles", 250, "rolesMostrables")
-		this.buildColumn(table, "Actor", 250, "actor.nombreCompleto")
-		// Falta el borrado
-		
-		val panelNuevoPersonaje = new Panel(panelDerecho)
-		panelNuevoPersonaje.layout = new HorizontalLayout
-		val filaRoles = new Panel(panelNuevoPersonaje)
-		new Label(filaRoles).text = "Roles"
-		new TextBox(filaRoles) => [
-			width = 130
-			value <=> "rolesPersonaje"
-		]
-		val filaActores = new Panel(panelNuevoPersonaje)
-		new Label(filaActores).text = "Actor"
-		new Selector<Actor>(filaActores) => [
-			value <=> "actorPersonaje"
-			items <=> "actores"
-		]
-		val filaAgregar = new Panel(panelNuevoPersonaje)
-		new Button(filaAgregar) => [
-			caption = "Agregar personaje"
-			onClick [ | modelObject.agregarPersonaje ]
-		]
-	}
+		TableColumnBuilder.buildColumn(table, "Roles", 250, "rolesMostrables")
+		TableColumnBuilder.buildColumn(table, "Actor", 250, "actor.nombreCompleto")
 
-	/**
-	 * Define las columnas de la grilla Cada columna se puede bindear 1) contra una propiedad del model, como
-	 * en el caso del número o el nombre 2) contra un transformer que recibe el model y devuelve un tipo
-	 * (generalmente String), como en el caso de Recibe Resumen de Cuenta
-	 *
-	 * @param table
-	 */
-	def void buildColumn(Table _table, String _title, int _fixedSize, String _bindedField) {
-		new Column(_table) => [
-			title = _title
-			fixedSize = _fixedSize
-			bindContentsToProperty(_bindedField)
-		]
+		this.createGridActions(panelDerecho)
 	}
 
 	def getRepoPeliculas() {
 		ApplicationContext.instance.getSingleton(typeof(Pelicula)) as RepoPeliculas
+	}
+
+	def void createGridActions(Panel mainPanel) {
+		val actionsPanel = new Panel(mainPanel)
+		actionsPanel.setLayout(new HorizontalLayout)
+		val elementSelected = new NotNullObservable("personajeSeleccionado")
+
+		new Button(actionsPanel) => [
+			caption = "Eliminar personaje"
+			onClick [|modelObject.eliminarPersonaje]
+			bindEnabled(elementSelected)
+		]
+	}
+
+	def void agregarPersonaje() {
+		this.openDialog(new AgregarPersonajeDialog(this, new AgregarPersonaje(modelObject.pelicula)))
+	}
+
+	def openDialog(Dialog<?> dialog) {
+		dialog.open
 	}
 
 }

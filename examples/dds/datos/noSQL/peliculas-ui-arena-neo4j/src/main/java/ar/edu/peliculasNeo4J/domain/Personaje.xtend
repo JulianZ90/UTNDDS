@@ -19,4 +19,8 @@ class Personaje {
 		rolesAsString.substring(1, rolesAsString.length - 1)	
 	}
 	
+	override toString() {
+		rolesMostrables + " por " + actor.toString
+	}
+	
 }
