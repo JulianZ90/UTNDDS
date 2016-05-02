@@ -85,6 +85,7 @@ class RepoPeliculas extends AbstractRepoNeo4J {
 	}
 
 	def void saveOrUpdatePelicula(Pelicula pelicula) {
+		pelicula.validar
 		val transaction = graphDb.beginTx
 		try {
 			var Node nodoPelicula = null
