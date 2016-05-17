@@ -1,12 +1,16 @@
 package ar.edu.librosMorphia.domain
 
+import org.bson.types.ObjectId
 import org.eclipse.xtend.lib.annotations.Accessors
-import org.uqbar.commons.model.Entity
+import org.mongodb.morphia.annotations.Entity
+import org.mongodb.morphia.annotations.Id
 import org.uqbar.commons.utils.Observable
 
 @Observable
 @Accessors
-class Usuario extends Entity {
+@Entity
+class Usuario {
+	@Id ObjectId id
 	
 	String nombre
 	String password
